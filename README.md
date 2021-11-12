@@ -32,24 +32,6 @@
 ## 設計書
 （作成後追加予定）
 
-(テーブル定義書)
-
-<<<<<<< HEAD
-
-（ER図）
-=======
-
-https://docs.google.com/spreadsheets/d/1RGtuNNska-x0XrVKxtepWGykhXCc3ur0pBm2QpxkF1Y/edit#gid=0
-
-
-(ER図)
-
-
-https://drive.google.com/file/d/1j5ff3JFq8AEahy-VtkdXdNHbXYnEbKgb/view?usp=sharing
-
->>>>>>> e7acc66129c251d75c3ce5bf1887426d1ded80fc
-
-
 
 ## チャレンジ要素一覧
 
