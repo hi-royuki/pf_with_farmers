@@ -61,4 +61,9 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'devise' # ユーザー認証
+# ユーザー認証
+gem 'devise' 
+
+# Rails上でBootstrapを使えるようするgem
+gem 'bootstrap', '~> 4.5'
+gem 'jquery-rails' 
