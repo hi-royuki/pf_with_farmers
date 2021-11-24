@@ -1,0 +1,20 @@
+<!-- 農業を投稿するページ-->
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h5 class="text-dark bg-light p-4 mb-0">農業日記</h5>
+      <%= form_with model: @post, url: farmer_users_posts_path, local:true do |f| %>
+      <h6>画像</h6>
+      <%= f.attachment_field :image %>
+      <h6>タイトル</h6>
+      <%= f.text_field :title %>
+      <h6>日記</h6>
+      <%= f.text_area :introduction %>
+      <%= f.submit '投稿' %>
+
+    </div>
+  </div>
+  <% end %>
+</div>
+
+

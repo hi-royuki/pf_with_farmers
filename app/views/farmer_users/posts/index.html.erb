@@ -1,0 +1,11 @@
+<!--農業日記一覧-->
+ <%= link_to "投稿する", new_farmer_users_post_path %>
+<% @post.each do |post| %>
+<div>
+  <%= attachment_image_tag post, :image %>
+  <p>タイトル:<%= post.title %></p>
+  <p>日記:<%= post.introduction %></p>
+  <p>ユーザー:<%= post.farmer_user.name %></p>
+</div>
+<% end %>
+
