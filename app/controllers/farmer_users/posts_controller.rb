@@ -1,4 +1,5 @@
 class FarmerUsers::PostsController < ApplicationController
+  before_action :authenticate_farmer_user!
   def new
     @post = Post.new
   end
@@ -15,10 +16,15 @@ class FarmerUsers::PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to farmer_users_posts_path
   end
+
 
   private
   def post_params
