@@ -7,8 +7,11 @@ class FarmerUsers::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.farmer_user_id = current_farmer_user.id
-    @post.save
+    if @post.save
       redirect_to farmer_users_posts_path
+    else
+      render :new
+    end
   end
 
   def index
