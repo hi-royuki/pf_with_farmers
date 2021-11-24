@@ -14,7 +14,7 @@
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
           <!--イメージ入れる-->
-          <a class="navbar-brand p-3" href="/"></a>
+          <!--<a class="navbar-brand p-3" href="/"></a>-->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -45,10 +45,7 @@
               <%= link_to "新規登録", home_choice_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "農家ユーザーログイン", new_farmer_user_session_path, class: 'nav-link text-dark' %>
-            </li>
-             <li class="nav-item">
-              <%= link_to "一般ユーザーログイン", new_general_user_session_path, class: 'nav-link text-dark' %>
+              <%= link_to "ログイン", home_choice_login_path, class: 'nav-link text-dark' %>
             </li>
             <% end %>
             </ul>
@@ -56,6 +53,12 @@
         </div>
       </nav>
     </header>
+
+     <% if flash[:notice] %>
+     <div class="flash">
+     <%= flash[:notice] %>
+     </div>
+   　 <% end %>
 
     <%= yield %>
   </body>
