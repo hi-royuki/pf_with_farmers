@@ -1,2 +1,11 @@
-<h1>FarmerUsers::Posts#show</h1>
-<p>Find me in app/views/farmer_users/posts/show.html.erb</p>
+<!--投稿詳細ページ-->
+<div>
+  <%= attachment_image_tag @post, :image %>
+  <p>タイトル：<%= @post.title %></p>
+  <p>説明：<%= @post.introduction %></p>
+  <p>ユーザーネーム：<%= @post.farmer_user.name %></p>
+  <p>投稿日時：<%= @post.created_at.strftime('%Y%m%d') %></p>
+  <% if @post.farmer_user == current_farmer_user %>
+  <%= link_to "削除", farmer_users_post_path(@post), method: :delete %>
+  <% end %>
+</div>
