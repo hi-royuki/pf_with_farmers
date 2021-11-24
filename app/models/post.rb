@@ -1,7 +1,11 @@
 class Post < ApplicationRecord
+
   # farmeruserモデルを関連づける
   belongs_to :farmer_user
+  # 画像
   attachment :image
+  # Post_commentモデルと関連づける
+  has_many :post_comments, dependent: :destroy
 
   # バリデーションの設定
   validates :image, presence: true
