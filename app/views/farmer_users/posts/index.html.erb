@@ -2,12 +2,13 @@
  <%= link_to "投稿する", new_farmer_users_post_path %>
 <% @post.each do |post| %>
 <div>
-
+  <%= link_to farmer_users_post_path(post.id) do %>
   <%= attachment_image_tag post, :image %>
+  <% end %>
   <p>タイトル:<%= post.title %></p>
   <p>日記:<%= post.introduction %></p>
-  <p><%= link_to farmer_users_post_path(post.id) do %>:<%= post.farmer_user.name %></p>
-  <% end %>
+  <p>ユーザーネーム:<%= post.farmer_user.name %></p>
+  
 </div>
 <% end %>
 
