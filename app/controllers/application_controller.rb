@@ -1,19 +1,19 @@
 class ApplicationController < ActionController::Base
-  
+
   before_action :configure_permitted_parameters, if: :devise_controller?
-  
-  
-  
-  # def after_sign_in_path_for(resource)
-  #   case resource
-  #   when User
-  #     user_posts_path
-  #   when AdminUser
-  #     admin_user_posts_path
-  #   end
-  # end
-  
-  
+
+
+
+   def after_sign_in_path_for(resource)
+     case resource
+     when FarmerUser
+        farmer_users_posts_path
+     when GeneralUser
+       admin_user_posts_path
+     end
+   end
+
+
   protected
 
   def configure_permitted_parameters
