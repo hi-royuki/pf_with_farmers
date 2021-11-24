@@ -4,6 +4,8 @@ class FarmerUser < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-  #Postモデルを関連
-  has_many :posts, dependent: :destroy
+          #Postモデルと関連づける
+          has_many :posts, dependent: :destroy
+          # Post_commentモデルと関連づける
+          has_many :post_comments, dependent: :destroy
 end
