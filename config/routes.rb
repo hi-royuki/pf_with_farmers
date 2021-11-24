@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  # トップページ
+  root to: 'home#index'
+  # アバウトページ
+  get 'home/about'
+  # ユーザ選択ページ
+  get 'home/choice'
+
   # 一般ユーザー
   devise_for :general_users, controllers: {
     sessions: 'general_users/sessions',
