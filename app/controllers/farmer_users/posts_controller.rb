@@ -8,7 +8,7 @@ class FarmerUsers::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.farmer_user_id = current_farmer_user.id
     if @post.save
-      redirect_to farmer_users_posts_path(farmer_users_posts)
+      redirect_to farmer_users_posts_path
     else
       render :new
     end
