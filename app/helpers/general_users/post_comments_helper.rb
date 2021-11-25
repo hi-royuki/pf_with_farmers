@@ -1,0 +1,2 @@
+module GeneralUsers::PostCommentsHelper
+end

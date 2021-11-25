@@ -9,3 +9,21 @@
   <%= link_to "削除", farmer_users_post_path(@post), method: :delete %>
   <% end %>
 </div>
+
+<div>
+  <p>コメント件数：<%= @post.post_comments.count %></p>
+  <% @post.post_comments.each do |post_comment| %>
+  <p><%= image_tag('no_image.jpg') %></p>
+  <%= post_comment.farmer_user.name %>
+  <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment%>
+  <% end %>
+</div>
+
+<div>
+  <!--form_withに対して，[]のように配列でインスタンス変数を２つ指定する-->
+  <!--コメントは投稿(Post)に結びついたpost_commentにあるため２つ用意する必要がある-->
+  <%= form_with(model:[@post, @post_comment], url: farmer_users_post_post_comments_path(@post), local: true) do |f| %>
+  <%= f.text_area :comment, rows:'5' ,placeholder: "コメントをここに" %>
+  <%= f.submit "コメントする" %>
+  <% end %>
+</div>
