@@ -3,7 +3,7 @@ class FarmerUser < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
+
           #Postモデルと関連づける
           has_many :posts, dependent: :destroy
           # Post_commentモデルと関連づける
