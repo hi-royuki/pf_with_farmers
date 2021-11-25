@@ -62,13 +62,16 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # ユーザー認証
-gem 'devise' 
+gem 'devise'
 
 # Rails上でBootstrapを使えるようするgem
 gem 'bootstrap', '~> 4.5'
-gem 'jquery-rails' 
+gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
 
 # 「refile」と「refile-mini_magick」を利用して、画像の投稿機能を実装
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
+
+# デバッグ作業をサポートしてくれるツールの導入
+gem 'byebug'
