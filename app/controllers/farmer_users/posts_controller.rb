@@ -8,7 +8,7 @@ class FarmerUsers::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.farmer_user_id = current_farmer_user.id
     if @post.save
-      redirect_to farmer_users_posts_path
+      redirect_to farmer_users_posts_path(farmer_users_posts)
     else
       render :new
     end
@@ -20,6 +20,9 @@ class FarmerUsers::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+
+    # コメントのインスタンス変数記述
+    @post_comment = PostComment.new
   end
 
   def destroy
