@@ -1,0 +1,47 @@
+<!--マイページ-->
+<div class="container">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="d-flex aligin-items-center">
+      <h3 class="p-3 md-10 bg-secondary text-white">マイページ</h3>
+    </div>
+
+    <table>
+      <tr>
+        <th>登録情報</th>
+        <!--<th>%= link_to "編集する", edit_customers_path, class: "btn btn-outline-success" %</th>-->
+      </tr>
+    </table>
+
+    <table class="table table-bordered">
+      <tbody>
+        <thead>
+        <tr>
+          <%= attachment_image_tag @user, :profile_image_id, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+        </tr>
+        <tr>
+          <th class ="carum_title">ニックネーム</th>
+          <td class ="carum_date"><%= @user.name %></td>
+        </tr>
+
+        <tr>
+          <th class ="carum_title">メールアドレス</th>
+          <td class ="carum_date"><%= @user.email %></td>
+        </tr>
+        </thead>
+      </tbody>
+    </table>
+
+
+    <% @posts.each do |post| %>
+<div>
+
+  <p>投稿ユーザー画像：</p>
+  <p>ショップ名：<%= post.title %></p>
+  <p>説明：<%= post.introduction %></p>
+
+</div>
+<% end %>
+
+
+  </div>
+</div>

@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
+  namespace :general_users do
+    get 'users/show'
+  end
   namespace :farmer_users do
-    resources :posts, only:[:new, :create, :index, :show, :destroy] do
+    resource :users, only: [:show]
+    resources :posts, only: [:new, :create, :index, :show, :destroy] do
       resources :post_comments, only: [:create, :destroy]
     end
   end

@@ -1,0 +1,2 @@
+module FarmerUsers::UsersHelper
+end
