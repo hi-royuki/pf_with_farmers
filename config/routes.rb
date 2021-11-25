@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
 
   namespace :farmer_users do
-    resources :posts, only:[:new, :create, :index, :show, :destroy]
-    # get 'posts/new'
-    # get 'posts/create'
-    # get 'posts/index'
-    # get 'posts/show'
-    # get 'posts/destroy'
+    resources :posts, only:[:new, :create, :index, :show, :destroy] do
+      resources :post_comments, only: [:create, :destroy]
+    end
   end
+
   # トップページ
   root to: 'home#index'
   # アバウトページ
