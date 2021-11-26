@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     get 'users/show'
   end
   namespace :farmer_users do
-    resource :users, only: [:show]
+    resource :users, only: [:show, :edit, :update]
     resources :posts, only: [:new, :create, :index, :show, :destroy] do
       resources :post_comments, only: [:create, :destroy]
     end
