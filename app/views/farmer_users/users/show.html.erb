@@ -7,8 +7,8 @@
 
     <table>
       <tr>
-        <th>登録情報</th>
-        <!--<th>%= link_to "編集する", edit_customers_path, class: "btn btn-outline-success" %</th>-->
+        <th><%= link_to "編集する", edit_farmer_users_users_path, class: "btn btn-outline-success" %></th>
+        <!--<th></th>-->
       </tr>
     </table>
 
@@ -16,16 +16,16 @@
       <tbody>
         <thead>
         <tr>
-          <%= attachment_image_tag @user, :profile_image_id, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+          <%= attachment_image_tag @farmer_user, :profile_image_id, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
         </tr>
         <tr>
           <th class ="carum_title">ニックネーム</th>
-          <td class ="carum_date"><%= @user.name %></td>
+          <td class ="carum_date"><%= @farmer_user.name %></td>
         </tr>
 
         <tr>
           <th class ="carum_title">メールアドレス</th>
-          <td class ="carum_date"><%= @user.email %></td>
+          <td class ="carum_date"><%= @farmer_user.email %></td>
         </tr>
         </thead>
       </tbody>
