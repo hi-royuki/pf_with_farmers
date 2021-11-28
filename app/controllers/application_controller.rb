@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
      when FarmerUser
         farmer_users_posts_path
      when GeneralUser
-       admin_user_posts_path
+        general_users_posts_path
      end
    end
 
