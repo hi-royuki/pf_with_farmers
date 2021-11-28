@@ -3,10 +3,12 @@ class FarmerUsers::PostCommentsController < ApplicationController
 
   def create
     post = Post.find(params[:post_id])
-    post_comment = current_farmer_user.post_comments.new(post_comment_params)
-    post_comment.post_id = post.id
-
-    post_comment.save
+    # comment = current_farmer_user.post_comments.new(post_comment_params)
+    comment = PostComment.new(post_comment_params)
+    comment.farmer_user_id = current_farmer_user.id
+    # comment.general_user_id = current_general_user.id
+    comment.post_id = post.id
+    comment.save
     redirect_to farmer_users_post_path(params[:post_id])
   end
 

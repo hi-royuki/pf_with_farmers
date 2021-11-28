@@ -20,7 +20,7 @@ class FarmerUsers::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-
+    # @post_comments = @post.comments
     # コメントのインスタンス変数記述
     @post_comment = PostComment.new
   end
