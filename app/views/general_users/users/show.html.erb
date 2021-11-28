@@ -1,2 +1,40 @@
-<h1>GeneralUsers::Users#show</h1>
-<p>Find me in app/views/general_users/users/show.html.erb</p>
+<!--一般マイページ-->
+<div class="container">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="d-flex aligin-items-center">
+      <h3 class="p-3 md-10 bg-secondary text-white">マイページ</h3>
+    </div>
+
+    <table>
+      <tr>
+        <th><%= link_to "編集する", edit_general_users_users_path, class: "btn btn-outline-success" %></th>
+        <!--<th></th>-->
+      </tr>
+    </table>
+
+    <table class="table table-bordered">
+      <tbody>
+        <thead>
+        <tr>
+          <%= attachment_image_tag @general_user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+        </tr>
+        <tr>
+          <th class ="carum_title">ニックネーム</th>
+          <td class ="carum_date"><%= @general_user.name %></td>
+        </tr>
+
+        <tr>
+          <th class ="carum_title">メールアドレス</th>
+          <td class ="carum_date"><%= @general_user.email %></td>
+        </tr>
+        </thead>
+      </tbody>
+    </table>
+
+
+
+
+
+
+  </div>
+</div>

@@ -6,9 +6,11 @@ class FarmerUser < ApplicationRecord
 
           #Postモデルと関連づける
           has_many :posts, dependent: :destroy
+          # has_many :books, dependent: :destroy
 
           # Post_commentモデルと関連づける
           has_many :post_comments, dependent: :destroy
+
 
           # refileを使って、画像投稿ができるようにする
            attachment :profile_image
