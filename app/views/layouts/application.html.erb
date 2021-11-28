@@ -34,6 +34,20 @@
               <%= link_to "ログアウト", destroy_farmer_user_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
 
+            <% elsif general_user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to '投稿一覧', general_users_posts_path, class: 'nav-link text-dark' %>
+            </li>
+           <li class="nav-item">
+              <%= link_to 'イベント一覧', general_users_posts_path, class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <!--%= link_to 'マイページ', general_users_users_path, class: 'nav-link text-dark' %>-->
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログアウト", destroy_general_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+            </li>
+
             <% else %>
             <li class="nav-item">
               <%= link_to "トップ", root_path, class: 'nav-link text-dark' %>
