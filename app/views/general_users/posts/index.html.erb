@@ -1,0 +1,11 @@
+<% @post.each do |post| %>
+<div>
+  <%= link_to general_users_post_path(post.id) do %>
+  <%= attachment_image_tag post, :image %>
+  <% end %>
+  <p>タイトル:<%= post.title %></p>
+  <p>日記:<%= post.introduction %></p>
+  <p>ユーザーネーム:<%= post.farmer_user.name %></p>
+
+</div>
+<% end %>
