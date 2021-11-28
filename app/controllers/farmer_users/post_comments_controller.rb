@@ -11,6 +11,8 @@ class FarmerUsers::PostCommentsController < ApplicationController
   end
 
   def destroy
+    PostComment.find_by(id: params[:id]).destroy
+    redirect_to farmer_users_post_path(params[:post_id])
   end
 
   private
