@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-
+# 一般ユーザー
   namespace :general_users do
-    get 'users/show'
+    resource :users, only: [:show, :edit, :update]
     resources :posts, only: [:index, :show] do
       resources :post_comments, only: [:create, :destroy]
     end
+#農家ユーザー
   end
   namespace :farmer_users do
     resource :users, only: [:show, :edit, :update]

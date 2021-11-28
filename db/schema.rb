@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_25_055117) do
+ActiveRecord::Schema.define(version: 2021_11_28_133459) do
+
+  create_table "books", force: :cascade do |t|
+    t.text "title"
+    t.integer "farmer_user_id"
+    t.integer "general_user_id"
+    t.string "image_id"
+    t.text "introduction"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "comment"
+    t.integer "farmer_user_id"
+    t.integer "general_user_id"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "farmer_users", force: :cascade do |t|
     t.string "email", default: "", null: false
