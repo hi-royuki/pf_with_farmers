@@ -1,0 +1,36 @@
+<!-- 農業を投稿するページ-->
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h5 class="text-dark bg-light p-4 mb-0">農業体験！！</h5>
+      <div class="form-body p-4">
+
+        <!--ここからエラーメッセージ-->
+        <% if @event.errors.any? %>
+        <%= @event.errors.count %>件のエラーが発生しました。入力を確認してください。
+        <% @event.errors.full_messages.each do |message| %>
+        <%= message %>
+        <% end %>
+        <% end %>
+        <!--ここまで-->
+
+
+      <%= form_with model: @event, url: farmer_users_events_path, local:true do |f| %>
+      <h6>画像</h6>
+      <%= f.attachment_field :event_image %>
+      <h6>イベント名</h6>
+      <%= f.text_field :title %>
+      <h6>日時</h6>
+      <%= f.text_field :event_date %>
+      <h6>参加費</h6>
+      ¥<%= f.text_field :price %>
+      <h6>詳細内容</h6>
+      <%= f.text_area :introduction %>
+
+      <%= f.submit '投稿' %>
+     <% end %>
+     </div>
+    </div>
+  </div>
+
+</div>

@@ -3,9 +3,12 @@
   <%= link_to general_users_post_path(post.id) do %>
   <%= attachment_image_tag post, :image %>
   <% end %>
+  <%= link_to farmer_users_customer_path(post.farmer_user) do %>
+  <h3><%= attachment_image_tag post.farmer_user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %><%= post.farmer_user.name %></h3>
+  <% end %>
   <p>タイトル:<%= post.title %></p>
   <p>日記:<%= post.introduction %></p>
-  <p>ユーザーネーム:<%= post.farmer_user.name %></p>
+
 
 </div>
 <% end %>

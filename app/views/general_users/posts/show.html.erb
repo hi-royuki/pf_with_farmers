@@ -2,9 +2,9 @@
 
 <div>
   <%= attachment_image_tag @post, :image %>
+ <h3><%= attachment_image_tag @post.farmer_user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %><%= @post.farmer_user.name %></h3>
   <p>タイトル：<%= @post.title %></p>
   <p>説明：<%= @post.introduction %></p>
-  <p>ユーザーネーム：<%= @post.farmer_user.name %></p>
   <p>投稿日時：<%= @post.created_at.strftime('%Y%m%d') %></p>
 </div>
 
@@ -13,8 +13,9 @@
 
   <% @post.post_comments.each do |post_comment| %>
   <p><%= image_tag('no_image.jpg') %></p>
-  <%= post_comment.general_user.name %>
-  
+
+  <!--%= post_comment.general_user.name %>-->
+
   <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment%>
   <% if post_comment.general_user == current_general_user %>
   <div>

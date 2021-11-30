@@ -1,0 +1,2 @@
+module GeneralUsers::CustomersHelper
+end

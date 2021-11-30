@@ -1,18 +1,5 @@
 Rails.application.routes.draw do
-# 一般ユーザー
-  namespace :general_users do
-    resource :users, only: [:show, :edit, :update]
-    resources :posts, only: [:index, :show] do
-      resources :post_comments, only: [:create, :destroy]
-    end
-#農家ユーザー
-  end
-  namespace :farmer_users do
-    resource :users, only: [:show, :edit, :update]
-    resources :posts, only: [:new, :create, :index, :show, :destroy] do
-      resources :post_comments, only: [:create, :destroy]
-    end
-  end
+
 
   # トップページ
   root to: 'home#index'
@@ -22,7 +9,7 @@ Rails.application.routes.draw do
   get 'home/choice'
   get 'home/choice_login'
 
-  # 一般ユーザー
+    # 一般ユーザー
   devise_for :general_users, controllers: {
     sessions: 'general_users/sessions',
     passwords: 'general_users/passwords',
@@ -35,6 +22,25 @@ Rails.application.routes.draw do
     passwords: 'farmer_users/passwords',
     registrations: 'farmer_users/registrations'
   }
+
+# 一般ユーザー
+  namespace :general_users do
+    resources :customers, only: [:show]
+    resource :users, only: [:show, :edit, :update]
+    resources :events, only: [:index, :show]
+    resources :posts, only: [:index, :show] do
+      resources :post_comments, only: [:create, :destroy]
+    end
+#農家ユーザー
+  end
+  namespace :farmer_users do
+    resources :customers, only: [:show]
+    resource :users, only: [:show, :edit, :update]
+    resources :events, only: [:new, :create, :index, :show, :destroy]
+    resources :posts, only: [:new, :create, :index, :show, :destroy] do
+      resources :post_comments, only: [:create, :destroy]
+    end
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
