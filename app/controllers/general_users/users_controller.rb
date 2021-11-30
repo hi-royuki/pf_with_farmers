@@ -3,7 +3,6 @@ class GeneralUsers::UsersController < ApplicationController
 
   def show
     @general_user = current_general_user
-
   end
 
   def edit
@@ -19,6 +18,8 @@ class GeneralUsers::UsersController < ApplicationController
       render :edit
     end
   end
+
+
 
    def general_user_params
      	params.require(:general_user).permit(:name, :email, :profile_image)
