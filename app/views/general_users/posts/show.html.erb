@@ -13,8 +13,11 @@
 
   <% @post.post_comments.each do |post_comment| %>
   <p><%= image_tag('no_image.jpg') %></p>
-
-  <!--%= post_comment.general_user.name %>-->
+ <% if post_comment.farmer_user %>
+  <%= post_comment.farmer_user.name %>
+<% else %>
+  <%= post_comment.general_user.name %>
+<% end %>
 
   <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment%>
   <% if post_comment.general_user == current_general_user %>

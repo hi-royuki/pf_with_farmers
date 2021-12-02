@@ -8,7 +8,6 @@ class GeneralUsers::PostsController < ApplicationController
   def show
 
     @post = Post.find(params[:id])
-    # @post_comments = @post.comments
     @post_comment = PostComment.new #コメントのインスタンス変数を記述
   end
 

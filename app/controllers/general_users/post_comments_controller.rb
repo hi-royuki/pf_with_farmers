@@ -5,7 +5,11 @@ class GeneralUsers::PostCommentsController < ApplicationController
     post = Post.find(params[:post_id])
     # comment = current_general_user.post_comments.new(post_comment_params)
     comment = PostComment.new(post_comment_params)
+    if current_general_user
     comment.general_user_id = current_general_user.id
+    else
+    comment.farmer_user_id = current_farmer_user.id
+    end
     comment.post_id = post.id
     comment.save
     redirect_to general_users_post_path(params[:post_id])
