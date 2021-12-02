@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_30_080028) do
+ActiveRecord::Schema.define(version: 2021_12_02_111902) do
 
   create_table "books", force: :cascade do |t|
     t.text "title"
@@ -68,6 +68,19 @@ ActiveRecord::Schema.define(version: 2021_11_30_080028) do
     t.string "profile_image_id"
     t.index ["email"], name: "index_general_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_general_users_on_reset_password_token", unique: true
+  end
+
+  create_table "joins", force: :cascade do |t|
+    t.integer "farmer_user_id"
+    t.integer "general_user_id"
+    t.integer "event_id"
+    t.integer "email"
+    t.integer "phone"
+    t.integer "people"
+    t.string "name"
+    t.text "memo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "post_comments", force: :cascade do |t|

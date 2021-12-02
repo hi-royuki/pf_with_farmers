@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  farmer_user_id: 1
+  general_user_id_integer: MyString
+  name: MyString
+  email: 1
+  memo: MyText
+  people: 1
+
+two:
+  farmer_user_id: 1
+  general_user_id_integer: MyString
+  name: MyString
+  email: 1
+  memo: MyText
+  people: 1

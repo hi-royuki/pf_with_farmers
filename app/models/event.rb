@@ -1,6 +1,10 @@
 class Event < ApplicationRecord
   # farmeruserモデルを関連づける
    belongs_to :farmer_user
+
+   has_many :joins, dependent: :destroy
+
+
    # 画像
    attachment :event_image
 

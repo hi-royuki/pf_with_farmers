@@ -10,6 +10,8 @@ class GeneralUser < ApplicationRecord
          # Post_commentモデルと関連づける
          has_many :post_comments, dependent: :destroy
 
+         has_many :joins, dependent: :destroy
+
          # refileを使って、画像投稿ができるようにする
            attachment :profile_image
 
