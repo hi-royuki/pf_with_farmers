@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   # トップページ
   root to: 'home#index'
   # アバウトページ
@@ -29,17 +28,32 @@ Rails.application.routes.draw do
     resource :users, only: [:show, :edit, :update]
     resources :events, only: [:index, :show]
     resources :posts, only: [:index, :show] do
-      resources :post_comments, only: [:create, :destroy]
+    resources :post_comments, only: [:create, :destroy]
     end
-#農家ユーザー
+     resources :joins, only: [:new, :create, :index, :show] do
+      collection do
+        post 'confirm'
+        get 'complete'
+      end
+    end
   end
+
+  #農家ユーザー
   namespace :farmer_users do
     resources :customers, only: [:show]
     resource :users, only: [:show, :edit, :update]
     resources :events, only: [:new, :create, :index, :show, :destroy]
     resources :posts, only: [:new, :create, :index, :show, :destroy] do
-      resources :post_comments, only: [:create, :destroy]
+     resources :post_comments, only: [:create, :destroy]
     end
+   # 7つ以外のアクションがある時は，collection(idなし)とmember(id含む)を使って指定する。
+    resources :joins, only: [:new, :create, :index, :show] do
+      collection do
+        post 'confirm'
+        get 'complete'
+      end
+    end
+
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
