@@ -1,0 +1,2 @@
+module FarmerUsers::JoinsHelper
+end
