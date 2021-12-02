@@ -39,6 +39,11 @@
   <p>ショップ名：<%= post.title %></p>
   <p>説明：<%= post.introduction %></p>
 
+  <%= link_to "削除", farmer_users_post_path(post), method: :delete %>
+
+
+
+
 </div>
 <% end %>
 
