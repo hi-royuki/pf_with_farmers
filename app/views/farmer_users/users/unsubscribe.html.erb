@@ -1,0 +1,9 @@
+<h4 class="text-center">本当に退会しますか</h4>
+<p class ="text-center">
+  退会する場合は「退会する」をクリックしてください。
+</p>
+
+<div class="text-center">
+  <%= link_to "退会しない", edit_farmer_users_users_path, class: "btn btn-primary" %>
+  <%= link_to "退会する", withdraw_farmer_users_users_path, method: :PATCH, data: { confirm: '退会しますか？' }, class: "btn btn-danger ml-4" %>
+</div>
