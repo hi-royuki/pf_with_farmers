@@ -26,33 +26,47 @@ Rails.application.routes.draw do
   namespace :general_users do
     resources :customers, only: [:show]
     resource :users, only: [:show, :edit, :update]
-    resources :events, only: [:index, :show]
-    resources :posts, only: [:index, :show] do
-    resources :post_comments, only: [:create, :destroy]
-    end
-     resources :joins, only: [:new, :create, :index, :show] do
+
+    #joinは、イベントに対して参加フォームを送信する。joinは、に結びつくためネスト（親子関係）する
+    resources :events, only: [:index, :show] do
+      resources :joins, only: [:new, :create, :index, :show] do
       collection do
         post 'confirm'
+        post 'back'
         get 'complete'
+
       end
     end
+  end
+
+  #コメントは、投稿画像に対してコメントされる。post_commentsは、postに結びつくためネスト（親子関係）する
+    resources :posts, only: [:index, :show] do
+     resources :post_comments, only: [:create, :destroy]
+    end
+
   end
 
   #農家ユーザー
   namespace :farmer_users do
     resources :customers, only: [:show]
     resource :users, only: [:show, :edit, :update]
-    resources :events, only: [:new, :create, :index, :show, :destroy]
-    resources :posts, only: [:new, :create, :index, :show, :destroy] do
-     resources :post_comments, only: [:create, :destroy]
-    end
-   # 7つ以外のアクションがある時は，collection(idなし)とmember(id含む)を使って指定する。
-    resources :joins, only: [:new, :create, :index, :show] do
+
+    #joinは、イベントに対して参加フォームを送信する。joinは、に結びつくためネスト（親子関係）する
+    resources :events, only: [:new, :create, :index, :show, :destroy] do
+     resources :joins, only: [:new, :create, :index, :show] do
+     # 7つ以外のアクションがある時は，collection(idなし)とmember(id含む)を使って指定する。
       collection do
         post 'confirm'
         get 'complete'
+        end
       end
+   end
+
+    #コメントは、投稿画像に対してコメントする。このため、post_commentsは、postに結びつくためネスト（親子関係）する
+    resources :posts, only: [:new, :create, :index, :show, :destroy] do
+     resources :post_comments, only: [:create, :destroy]
     end
+
 
   end
 

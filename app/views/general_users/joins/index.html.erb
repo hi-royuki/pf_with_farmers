@@ -1,2 +1,32 @@
-<h1>GeneralUsers::Joins#index</h1>
-<p>Find me in app/views/general_users/joins/index.html.erb</p>
+<!--注文履歴一覧-->
+<div class="container">
+  <div class="row">
+    <table class="table table-bordered">
+      <thead class="thead-light">
+        <tr>
+          <th>代表者氏名</th>
+          <th>連絡先（メールアドレス）</th>
+          <th>連絡先（電話番号）</th>
+          <th>参加人数</th>
+          <th>備考</th>
+        </tr>
+      </thead>
+
+      <% @joins.each do |join| %>
+        <body>
+          <tr>
+            <td><%= join.name %></td>
+            <td><%= join.email %></td>
+            <td><%= join.phone %></td>
+            <td><%= join.people %></td>
+            <td><%= join.memo %></td>
+
+            <!--<td>%= link_to '表示する', general_users_event_join_path(:event,:join), class: "btn btn-success" %></td>-->
+          <% end %>
+          </tr>
+      </body>
+    </table>
+  </div>
+
+
+</div>
