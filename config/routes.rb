@@ -25,12 +25,12 @@ Rails.application.routes.draw do
 # 一般ユーザー
   namespace :general_users do
     resources :customers, only: [:show]
-    resource :users, only: [:show, :edit, :update]
+    resource :users, only: [:show, :edit, :update] do
     collection do
         get 'unsubscribe'
         patch 'withdraw'
       end
-
+    end
     #joinは、イベントに対して参加フォームを送信する。joinは、に結びつくためネスト（親子関係）する
     resources :events, only: [:index, :show] do
       resources :joins, only: [:new, :create, :index, :show] do
@@ -54,11 +54,12 @@ Rails.application.routes.draw do
   namespace :farmer_users do
     resources :customers, only: [:show]
 
-    resource :users, only: [:show, :edit, :update]
+    resource :users, only: [:show, :edit, :update] do
     collection do
-        get 'unsubscribe'
-        patch 'withdraw'
+      get 'unsubscribe'
+      patch 'withdraw'
       end
+    end
 
     #joinは、イベントに対して参加フォームを送信する。joinは、に結びつくためネスト（親子関係）する
     resources :events, only: [:new, :create, :index, :show, :destroy] do

@@ -20,6 +20,20 @@ class FarmerUsers::UsersController < ApplicationController
     end
   end
 
+  # 退会ページ
+  def unsubscribe
+     @farmer_user = current_farmer_user
+  end
+
+  def withdraw
+    @farmer_user = current_farmer_user
+    @farmer_user.update(is_active: false)# //is_deletedをtrueへ
+
+    reset_session # ログアウトさせる
+    flash[:notice] = "ありがとうございました。又のご利用を心よりお待ちしております。"
+    redirect_to root_path
+  end
+
    def farmer_user_params
      	params.require(:farmer_user).permit(:name, :email, :profile_image)
    end
