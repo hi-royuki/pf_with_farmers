@@ -1,2 +1,68 @@
-<h1>FarmerUsers::Joins#new</h1>
-<p>Find me in app/views/farmer_users/joins/new.html.erb</p>
+<div class="container">
+  <div class="row no-gutters">
+    <% if @join.errors.any? %>
+    <%= @join.errors.count %>件のエラーが発生しました
+    <% @join.errors.full_messages.each do |message| %>
+    <%= message %>
+    <% end %>
+    <% end %>
+    <div class="col-md col-sm-10 mx-2 mx-sm-auto text-center shadow-lg rounded px-0 my-5">
+      <h5 class="text-dark bg-light py-4 mb-0">参加リクエストフォーム</h5>
+      <div class="form-body p-4">
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <h3><%= @event.title %></h3>
+          </div>
+        </div>
+
+
+        <%= form_with model: @join, url: confirm_farmer_users_event_joins_path, local: true do |f| %>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <%= f.label :name, "代表者指名（必須）", class:"ol-sm-7 col-form-label" %>
+            <%= f.text_field :name, class:"form-control", placeholder:"農家太郎" %>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <%= f.label :email, "連絡先（必須）", class:"ol-sm-7 col-form-label" %>
+            <%= f.text_field :email, class:"form-control", placeholder:"メールアドレス" %>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <%= f.label :phone, "連絡先", class:"ol-sm-7 col-form-label" %>
+            <%= f.text_field :phone, class:"form-control", placeholder:"電話番号（ハイフンなし）" %>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <%= f.label :people, "参加希望人数", class:"ol-sm-7 col-form-label" %>
+            <%= f.text_field :people, class:"form-control", placeholder:"半角数字で入力" %>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <%= f.label :memo, "備考", class:"ol-sm-7 col-form-label" %>
+            <%= f.text_area :memo, class:"form-control", placeholder:"要望等ありましたらここに記入してください。" %>
+          </div>
+        </div>
+        <div class="p-3 md-3">
+          <%= f.submit "確認画面へ進む", class: "btn btn-success text-center" %>
+        </div>
+
+      </div>
+
+
+      </div>
+    </div>
+  </div>
+
+<% end %>
+
