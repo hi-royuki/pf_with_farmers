@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_02_111902) do
+ActiveRecord::Schema.define(version: 2021_12_03_053604) do
 
   create_table "books", force: :cascade do |t|
     t.text "title"
@@ -74,8 +74,8 @@ ActiveRecord::Schema.define(version: 2021_12_02_111902) do
     t.integer "farmer_user_id"
     t.integer "general_user_id"
     t.integer "event_id"
-    t.integer "email"
-    t.integer "phone"
+    t.string "email"
+    t.string "phone"
     t.integer "people"
     t.string "name"
     t.text "memo"
