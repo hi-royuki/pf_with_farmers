@@ -57,6 +57,7 @@ Rails.application.routes.draw do
      # 7つ以外のアクションがある時は，collection(idなし)とmember(id含む)を使って指定する。
       collection do
         post 'confirm'
+        post 'back'
         get 'complete'
         end
       end
