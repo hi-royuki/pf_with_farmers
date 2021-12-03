@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     resource :users, only: [:show, :edit, :update]
 
     #joinは、イベントに対して参加フォームを送信する。joinは、に結びつくためネスト（親子関係）する
-    resources :events, only: [:index, :show] do
+    resources :events, only: [:index, :show, :edit] do
       resources :joins, only: [:new, :create, :index, :show] do
       collection do
         post 'confirm'
