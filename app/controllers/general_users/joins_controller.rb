@@ -39,6 +39,9 @@ class GeneralUsers::JoinsController < ApplicationController
     @joins = @general_user.joins.all
   end
 
+  def show
+   @join = Join.find(params[:join_id])
+  end
 
   private
 
