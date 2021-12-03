@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_03_053604) do
+ActiveRecord::Schema.define(version: 2021_12_03_155756) do
 
   create_table "books", force: :cascade do |t|
     t.text "title"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2021_12_03_053604) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "profile_image_id"
+    t.boolean "is_active", default: true, null: false
     t.index ["email"], name: "index_farmer_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_farmer_users_on_reset_password_token", unique: true
   end
@@ -66,6 +67,7 @@ ActiveRecord::Schema.define(version: 2021_12_03_053604) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "profile_image_id"
+    t.boolean "is_active", default: true, null: false
     t.index ["email"], name: "index_general_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_general_users_on_reset_password_token", unique: true
   end
