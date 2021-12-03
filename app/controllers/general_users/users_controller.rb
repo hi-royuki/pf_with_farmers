@@ -19,6 +19,21 @@ class GeneralUsers::UsersController < ApplicationController
     end
   end
 
+   # 退会ページ
+  def unsubscribe
+     @general_user = current_general_user
+  end
+
+  def withdraw
+    @general_user = current_general_user
+    @general_user.update(is_active: false)# //is_deletedをtrueへ
+
+    reset_session # ログアウトさせる
+    flash[:notice] = "ありがとうございました。又のご利用を心よりお待ちしております。"
+    redirect_to root_path
+  end
+
+
 
 
    def general_user_params
