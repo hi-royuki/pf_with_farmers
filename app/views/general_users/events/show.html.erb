@@ -1,3 +1,4 @@
+<%= link_to "イベントリクエスト履歴一覧",  general_users_event_joins_path(@event) %>
 <div>
   <%= attachment_image_tag @event, :event_image %>
 
@@ -9,6 +10,6 @@
   <p>参加費:￥<%= @event.price %></p>
   <p>内容：<%= @event.introduction %></p>
 
-  <%= link_to "参加リクエスト", new_general_users_join_path %>
+  <%= link_to "参加リクエスト", new_general_users_event_join_path(@event) %>
 
  </div>
