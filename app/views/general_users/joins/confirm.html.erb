@@ -35,6 +35,7 @@
        <%= f.hidden_field :email %>
        <%= f.hidden_field :general_user_id, value: @join.general_user_id %>
        <%= f.hidden_field :phone %>
+       <%= f.hidden_field :event_id, value: @join.event_id %>
        <%= f.hidden_field :people %>
        <%= f.hidden_field :memo %>
        <%= f.submit "イベントに参加する", class: "btn btn-success text-center" %>
