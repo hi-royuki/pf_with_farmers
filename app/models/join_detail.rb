@@ -1,0 +1,2 @@
+class JoinDetail < ApplicationRecord
+end
