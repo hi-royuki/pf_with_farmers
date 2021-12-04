@@ -14,6 +14,7 @@ class FarmerUsers::JoinsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     @join = current_farmer_user.joins.new(join_params)
+    @join.event_id = @event.id
     if @join.save
      redirect_to complete_farmer_users_event_joins_path
     else
