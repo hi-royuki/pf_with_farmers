@@ -5,27 +5,27 @@
       <thead class="thead-light">
         <tr>
           <th>リクエスト日</th>
-          <th>代表者氏名</th>
-          <th>参加人数</th>
-          <th>備考</th>
-          <th>詳細</th>
+          <th>イベント名</th>
+          <th>イベント日程</th>
+          <th>連絡先</th>
         </tr>
       </thead>
 
       <% @joins.each do |join| %>
+
         <body>
           <tr>
             <td><%= join.created_at.strftime('%Y/%m/%d') %> </td>
-            <td><%= join.name %></td>
-            <td><%= join.people %></td>
-            <td><%= join.memo %></td>
-
-            <td><%= link_to '表示する', general_users_event_join_path(:event,:join), class: "btn btn-success" %></td>
+            <td><%= join.event.title %></td>
+            <td><%= join.event.event_date %></td>
+            <td></td>
           <% end %>
+
           </tr>
       </body>
     </table>
   </div>
-
+</div>
+<div>
 
 </div>

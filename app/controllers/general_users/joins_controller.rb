@@ -23,6 +23,7 @@ class GeneralUsers::JoinsController < ApplicationController
   def create
      @event = Event.find(params[:event_id])
      @join = current_general_user.joins.new(join_params)
+     @join.event_id = @event.id
     if @join.save
      redirect_to complete_general_users_event_joins_path
     else
@@ -35,7 +36,6 @@ class GeneralUsers::JoinsController < ApplicationController
 
   def index
     @general_user = current_general_user
-    @event = Event.find(params[:event_id])
     @joins = @general_user.joins.all
   end
 
@@ -46,7 +46,7 @@ class GeneralUsers::JoinsController < ApplicationController
   private
 
   def join_params
-    params.require(:join).permit(:general_user_id, :email, :phone, :people, :name, :memo)
+    params.require(:join).permit(:general_user_id, :event_id, :email, :phone, :people, :name, :memo)
   end
 
 end

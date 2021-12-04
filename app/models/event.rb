@@ -3,6 +3,7 @@ class Event < ApplicationRecord
    belongs_to :farmer_user
 
    has_many :joins, dependent: :destroy
+   has_many :join_details, dependent: :destroy
 
 
    # 画像
