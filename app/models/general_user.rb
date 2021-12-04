@@ -4,8 +4,7 @@ class GeneralUser < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-        # has_many :posts, dependent: :destroy
-         has_many :books, dependent: :destroy
+        has_many :posts, dependent: :destroy
 
          # Post_commentモデルと関連づける
          has_many :post_comments, dependent: :destroy

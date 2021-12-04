@@ -1,5 +1,5 @@
 <!--投稿詳細ページ-->
-<%= link_to "イベントリクエスト履歴一覧", farmer_users_event_joins_path(@event) %>
+
 <%= link_to "参加リクエスト", new_farmer_users_event_join_path(@event) %>
 <div>
   <%= attachment_image_tag @event, :event_image %>
@@ -10,5 +10,6 @@
   <p>ユーザーネーム：<%= @event.farmer_user.name %></p>
   <% if @event.farmer_user == current_farmer_user %>
   <%= link_to "削除", farmer_users_event_path(@event), method: :delete %>
+  
   <% end %>
 </div>

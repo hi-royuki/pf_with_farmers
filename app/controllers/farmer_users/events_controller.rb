@@ -29,6 +29,13 @@ class FarmerUsers::EventsController < ApplicationController
     redirect_to farmer_users_events_path
   end
 
+  def confirm
+    @joins = Join.all
+    @farmer_user = current_farmer_user
+    @general_user = current_general_user
+    @event = @farmer_user.events.all
+  end
+
   private
   def event_params
     params.require(:event).permit(:title, :event_image, :introduction, :event_date, :price)

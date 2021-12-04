@@ -1,5 +1,7 @@
 <!--農業日記一覧-->
  <%= link_to "投稿する", new_farmer_users_event_path %>
+ <%= link_to "イベントリクエスト履歴一覧", farmer_users_event_joins_path(@event) %>
+ <p><%= link_to "イベント参加者リスト",  confirm_farmer_users_events_path %></p>
 <% @event.each do |event| %>
 <div>
   <%= link_to farmer_users_event_path(event.id) do %>
