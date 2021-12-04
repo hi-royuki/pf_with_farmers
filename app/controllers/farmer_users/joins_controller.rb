@@ -1,4 +1,6 @@
 class FarmerUsers::JoinsController < ApplicationController
+  before_action :authenticate_farmer_user!
+
   def new
     @event = Event.find(params[:event_id])
     @join = Join.new
@@ -27,12 +29,16 @@ class FarmerUsers::JoinsController < ApplicationController
 
   def index
     @farmer_user = current_farmer_user
-    @event = Event.find(params[:event_id])
     @joins = @farmer_user.joins.all
   end
 
-  def show
-  end
+  # def show
+  #   @join = Join.find(params[:id])
+  #   if @event.join_id = current_farmer_user.id
+  #   else
+  #       @event.join_id = current_general_user.id
+  #   end
+  # end
 
   def join_params
     params.require(:join).permit(:farmer_user_id, :email, :phone, :people, :name, :memo)
