@@ -75,3 +75,4 @@ gem "refile-mini_magick"
 
 # デバッグ作業をサポートしてくれるツールの導入
 gem 'byebug'
+gem 'enum_help'
