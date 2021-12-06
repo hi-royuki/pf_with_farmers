@@ -36,7 +36,7 @@ class FarmerUsers::JoinsController < ApplicationController
   #   @join = Join.find(params[:id])
   #   if @event.join_id = current_farmer_user.id
   #   else
-  #       @event.join_id = current_general_user.id
+  #       @event.join_id = current_general_userd.id
   #   end
   # end
 

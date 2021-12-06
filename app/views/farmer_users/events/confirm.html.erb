@@ -5,21 +5,40 @@
       <thead class="thead-light">
         <tr>
           <th>農業体験名</th>
-          <th>体験の日程</th>
+          <th>農業体験日</th>
           <th>体験希望者</th>
-          <th></th>
-          <th>連絡先</th>
+          <th>メールアドレス</th>
+          <th>電話番号</th>
+          <th>参加人数</th>
+          <th>備考（要望等）</th>
         </tr>
       </thead>
 
-       <% @joins.each do |join| %>
+
+       <% @events.each do |event| %>
 
         <body>
           <tr>
-            <td><%= join.created_at.strftime('%Y/%m/%d') %> </td>
+            <% link_to %>
+            <td><%= event.title %></td>
+            <td><%= event.event_date %></td>
 
-            <td></td>
-          <% end %>
+
+
+      <% @joins.where(event_id: event.id).each do |join| %>
+            <td><%= join.name %> </td>
+            <td><%= mail_to join.email %></td>
+            <td><%= join.phone %></td>
+            <td><%= join.people %>名</td>
+            <td><%= join.memo %></td>
+            <!--ステータス-->
+            <!--%= form_with model: @event, url: farmer_users_events_path, local: true do |f| %>-->
+            <!--<td>%= f.select :response_status, Event.response_statuses.keys.map {|k| [I18n.t("enums.event.response_status.#{k}"), k]} %></td>-->
+            <!--<td>%= f.submit "変更" %></td>-->
+            <!--% end %>-->
+
+ <% end %>
+ <% end %>
 
           </tr>
       </body>

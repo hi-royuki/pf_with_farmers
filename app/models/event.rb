@@ -15,5 +15,5 @@ class Event < ApplicationRecord
    validates :price, presence: true
    validates :event_date, presence: true
 
-
+ enum response_status: { outstanding: 0, in_progress: 1, closed: 2 }
 end

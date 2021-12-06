@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_04_031549) do
+ActiveRecord::Schema.define(version: 2021_12_06_131545) do
 
   create_table "books", force: :cascade do |t|
     t.text "title"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2021_12_04_031549) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "response_status", default: 0
   end
 
   create_table "farmer_users", force: :cascade do |t|

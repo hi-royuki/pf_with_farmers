@@ -65,6 +65,8 @@ Rails.application.routes.draw do
     resources :events, only: [:new, :create, :index, :show, :destroy] do
       collection do
         get 'confirm'
+        # post 'update'
+
       end
      resources :joins, only: [:new, :create, :index] do
      # 7つ以外のアクションがある時は，collection(idなし)とmember(id含む)を使って指定する。

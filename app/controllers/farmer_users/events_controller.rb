@@ -30,15 +30,26 @@ class FarmerUsers::EventsController < ApplicationController
   end
 
   def confirm
-    @joins = Join.all
     @farmer_user = current_farmer_user
     @general_user = current_general_user
-    @event = @farmer_user.events.all
+    @events = @farmer_user.events.all
+    # @joins = Join.where(event_id: )
+    @joins = Join.all
+
   end
+
+
+  # def updated
+  # if @event.update(event_params)
+  #     redirect_to confirm_farmer_users_events, notice: "対応ステータスを更新しました"
+  # else
+  #     render :confirm, alert: "対応ステータスを更新できませんでした"
+  # end
+  # end
 
   private
   def event_params
-    params.require(:event).permit(:title, :event_image, :introduction, :event_date, :price)
+    params.require(:event).permit(:title, :event_image, :introduction, :event_date, :price, :response_status)
   end
 
 end
