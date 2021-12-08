@@ -1,5 +1,6 @@
 class FarmerUsers::EventsController < ApplicationController
-
+  
+before_action :authenticate_farmer_user!
   def new
     @event = Event.new
   end
