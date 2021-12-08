@@ -1,26 +1,25 @@
-<div class="card-list-container py-5">
-  <% @post.each do |post| %>
-  <div class="card w-50 mx-auto mt-4 shadow-lg">
-    <%= link_to general_users_post_path(post.id) do %>
-    <%= attachment_image_tag post, :image %>
-    <% end %>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-2">
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-2 mx-auto">
+      <% @post.each do |post| %>
+      <div class="card-wrap">
+        <div class="card" style="width: 36rem;">
           <%= link_to farmer_users_customer_path(post.farmer_user) do %>
-          <%= attachment_image_tag post.farmer_user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %><%= post.farmer_user.name %>
+           <%= attachment_image_tag post.farmer_user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg", class: "circle" %><%= post.farmer_user.name %>
           <% end %>
+          <%= link_to general_users_post_path(post.id) do %>
+            <%= attachment_image_tag post, :image, :fill, 574, 574 %>
+          <% end %>
+          <div class="card-body">
+            <p class="card-title"><strong><i class="far fa-flag"></i><span><%= post.title %></span></strong></p>
+            <p cass="card-text"><%= post.introduction %></p>
+          </div>
         </div>
-        <div class="col-10">
-          <p class="card-title">
-            <strong><i class="far fa-flag"></i><span><%= post.title %></span></strong>
-          </p>
-          <p cass="card-text"><%= post.introduction %></p>
-        </div>
-
+        <% end %>
       </div>
     </div>
   </div>
 </div>
-<% end %>
+
+
 
