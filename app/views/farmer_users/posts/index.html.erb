@@ -17,7 +17,13 @@
           <p class="card-title">
             <strong><i class="far fa-flag"></i><span><%= post.title %></span></strong>
           </p>
-          <p cass="card-text"><%= post.introduction %></p>
+          <p cass="card-text"><%= post.introduction %>
+          <%=link_to farmer_users_post_path(post.id) do %>
+           <div class="d-flex flex-row-reverse bd-highlight">
+               <div class="bd-highlight text-dark"><h3><strong><i class="fas fa-comments"></i></strong></div></h3>
+           </div>
+           <% end %>
+          </p>
         </div>
       </div>
     <% end %>
