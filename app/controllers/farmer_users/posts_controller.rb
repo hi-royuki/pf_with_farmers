@@ -1,7 +1,7 @@
 class FarmerUsers::PostsController < ApplicationController
   before_action :authenticate_farmer_user!
   def new
-    @post = Post.new
+
   end
 
   def create
@@ -10,12 +10,15 @@ class FarmerUsers::PostsController < ApplicationController
     if @post.save
       redirect_to farmer_users_posts_path
     else
-      render :new
+      @posts = Post.all.order(created_at: :desc)
+      render action: :index
     end
   end
 
   def index
-    @post = Post.all
+    @post = Post.new
+    @posts = Post.all.order(created_at: :desc)
+
   end
 
   def show

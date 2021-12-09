@@ -5,18 +5,10 @@
       <h5 class="text-dark bg-light p-4 mb-0">農業日記</h5>
       <div class="form-body p-4">
 
-        <!--ここからエラーメッセージ-->
-        <% if @post.errors.any? %>
-        <%= @post.errors.count %>件のエラーが発生しました。入力を確認してください。
-        <% @post.errors.full_messages.each do |message| %>
-        <%= message %>
-        <% end %>
-        <% end %>
-        <!--ここまで-->
-
+        
 
       <%= form_with model: @post, url: farmer_users_posts_path, local:true do |f| %>
-      <h6>画像</h6>
+      <h6>画像<i class="fas fa-image"></i></h6>
       <%= f.attachment_field :image %>
       <h6>タイトル</h6>
       <%= f.text_field :title %>

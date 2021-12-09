@@ -1,10 +1,28 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.main-container {
+.cover {
   background-image: image-url('home.jpg');
   height: 600px;
+  display: table;
   background-position: center;
   background-size: cover;
+}
 
+.title {
+  position: relative;
+  color: #FFFFFF;
+  font-size: 60px;
+  font-family: Impact;
+}
+
+.sub-title {
+  font-family: Georgia, serif;
+  color: #FFFFFF;
+  font-family: monospace;
+}
+
+.text-center {
+  display: table-cell;
+  vertical-align: middle;
 }

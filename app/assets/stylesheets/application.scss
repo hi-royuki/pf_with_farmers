@@ -14,14 +14,6 @@
  *= require_self
  */
 
- .circle {
-      border-radius: 60%;
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-      border: 3px #FFFFFF;
-      padding: 3px;
-    }
 
  // header{
  //  background-color: 	#FFCC00;
@@ -30,3 +22,12 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+ .circle {
+      border-radius: 60%;
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border: 3px #FFFFFF;
+      padding: 3px;
+    }

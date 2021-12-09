@@ -12,7 +12,9 @@
        </div>
        <div class="p-2 bd-highlight">
          <% if @post.farmer_user == current_farmer_user %>
-          <%= link_to "削除", farmer_users_post_path(@post), method: :delete %>
+          <%= link_to farmer_users_post_path(@post), method: :delete do %>
+          <h3 class="text-dark"><i class="far fa-trash-alt"></i></h3>
+          <% end %>
          <% end %>
        </div>
     </div>
@@ -29,40 +31,51 @@
       <hr>
       <div class="comments card-text">
         <h6 class="mt-3"><%= @post.post_comments.count %>件のコメント</h6>
+        <div class="new-comment card-text">
+          <%= form_with(model:[@post, @post_comment], url: farmer_users_post_post_comments_path(@post), local: true) do |f| %>
+          <div class="input-group mb-3">
+          <!--<input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">-->
+          <%= f.text_area :comment, class:"form-control", placeholder: "コメントを投稿" %>
+          <div class="input-group-append">
+            <%= f.submit "コメントする", class:"btn btn-outline-secondary", id: "button-addon2" %>
+            <!--<button class="btn btn-outline-secondary" type="button" id="button-addon2"></button>-->
+          </div>
+        </div>
+          <% end %>
+
+       </div>
         <% @post.post_comments.each do |post_comment| %>
         <div class="media border mb-1">
           <% if post_comment.farmer_user %>
-           <%= attachment_image_tag @post.farmer_user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", class: "circle" %>
-           <%= post_comment.farmer_user.name %>
+          <div>
+           <%= attachment_image_tag post_comment.farmer_user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", class: "circle" %><br>
+        　<div class="ml-2 text-muted"><i class="far fa-user"></i><%= post_comment.farmer_user.name %></div>
+        </div>
           <% else %>
           <div>
-           <%= attachment_image_tag @post.general_user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", class: "circle" %><br>
+           <%= attachment_image_tag post_comment.general_user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", class: "circle" %><br>
            <div class="ml-2 text-muted"><i class="far fa-user"></i><%= post_comment.general_user.name %></div>
           </div>
           <% end %>
-          <div class="media-body ml-4 p-2">
-            <p><%= post_comment.comment%></p>
-            <p><%= post_comment.created_at.strftime('%Y/%m/%d') %></p>
-              <% if post_comment.general_user == current_general_user %>
-                <%= link_to "削除", general_users_post_post_comment_path(post_comment.post, post_comment), method: :delete %>
+          <div class="media-body ml-4 p-1">
+            <div class="d-flex bd-highlight">
+              <div class="p-2 flex-grow-1 bd-highlight"><%= post_comment.comment %></div>
+              <div class="p-2 bd-highlight">
+                 <i class="far fa-clock"><%= post_comment.created_at.strftime('%Y/%m/%d') %></i><br>
+                <% if post_comment.farmer_user == current_farmer_user %>
+                <%= link_to farmer_users_post_post_comment_path(post_comment.post, post_comment), method: :delete do %>
+                <h3 class="text-dark ml-2 p-2"><i class="far fa-trash-alt"></i></h3>
+                <% end %>
               <% end %>
+              </div>
+            </div>
+
            </div>
         </div>
+         <% end %>
       </div>
-      <% end %>
-    </div>
+
+
   </div>
 </div>
 
-
-
-
-
-<div>
-  <!--form_withに対して，[]のように配列でインスタンス変数を２つ指定する-->
-  <!--コメントは投稿(Post)に結びついたpost_commentにあるため２つ用意する必要がある-->
-  <%= form_with(model:[@post, @post_comment], url: farmer_users_post_post_comments_path(@post), local: true) do |f| %>
-  <%= f.text_area :comment, rows:'5' ,placeholder: "コメントをここに" %>
-  <%= f.submit "コメントする" %>
-  <% end %>
-</div>
