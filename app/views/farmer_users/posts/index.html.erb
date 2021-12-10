@@ -1,18 +1,67 @@
 <!--農業日記一覧-->
+<% @posts.each do |post| %>
+<div class="card w-50 mx-auto mt-4 shadow-lg">
+  <div class="card-wrap">
+    <div class="d-flex bd-highlight">
+      <div class="d-flex bd-highlight">
+        <div class="p-2 flex-grow-1 bd-highlight">
+          <%= link_to farmer_users_customer_path(post.farmer_user) do %>
+          <%= attachment_image_tag post.farmer_user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", class: "circle" %><%= post.farmer_user.name %>
+          <% end %>
+          <div class="p-2 bd-highlight">
+            <i class="far fa-clock"><%= post.created_at.strftime('%Y/%m/%d') %></i>
+          </div>
+          <%= link_to farmer_users_post_path(post.id) do %>
+          <%= attachment_image_tag post, :image, class:"card-img-top"; %>
+          <% end %>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-10">
+                <p card="card-title">
+                 <strong><i class="far fa-flag"></i><span><%= post.title %></span></strong>
+                </p>
+                <p class="card-text"><%= post.introduction %>
+                <%=link_to farmer_users_post_path(post.id) do %>
+                <h3><strong><i class="fas fa-comments"></i></strong></div></h3>
+                <% end %>
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="container px-5 px-sm-0">
   <div class="row">
       <!--農家投稿機能-->
       <div class="card" style="width: 20rem;">
           <div class="card-body">
               <!--ここからエラーメッセージ-->
-        <% if @post.errors.any? %>
-        <%= @post.errors.count %>件のエラーが発生しました。入力を確認してください。
-        <% end %>
+
         <!--ここまで-->
 
           <h1 class="card-title text-white p-3 mb-0", style="background-color: #21A937;"><strong>農業日記投稿</strong></h1>
           <%= form_with model: @post, url: farmer_users_posts_path, local:true do |f| %>
-          
+
           <div class="card-title">
               <label for="book_title">画像</label>
               <%= f.attachment_field :image %>
@@ -33,33 +82,20 @@
           </div>
       </div>
 
-   <div class="col-md-8 col-md-2 mx-auto">
-     <% @posts.each do |post| %>
-     <div class="card-wrap p-3">
-      <div class="card" style="width: 36rem;">
-        <%= link_to farmer_users_customer_path(post.farmer_user) do %>
-          <%= attachment_image_tag post.farmer_user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", class: "circle" %><%= post.farmer_user.name %>
-        <% end %>
 
-        <%= link_to farmer_users_post_path(post.id) do %>
-        <%= attachment_image_tag post, :image, :fill, 574, 574 %>
-        <% end %>
-         <div class="card-body">
-          <p class="card-title">
-            <strong><i class="far fa-flag"></i><span><%= post.title %></span></strong>
-          </p>
-          <p cass="card-text"><%= post.introduction %>
-          <%=link_to farmer_users_post_path(post.id) do %>
-           <div class="d-flex flex-row-reverse bd-highlight">
-               <div class="bd-highlight text-dark"><h3><strong><i class="fas fa-comments"></i></strong></div></h3>
+
+
+
+
+               <div class="bd-highlight text-dark">
            </div>
-           <% end %>
+
           </p>
         </div>
       </div>
 
     </div>
-    <% end %>
+
    </div>
   </div>
 </div>
