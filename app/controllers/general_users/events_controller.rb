@@ -1,7 +1,7 @@
 class GeneralUsers::EventsController < ApplicationController
   before_action :authenticate_general_user!
   def index
-    @event = Event.all
+    @events = Event.all
   end
 
   def show

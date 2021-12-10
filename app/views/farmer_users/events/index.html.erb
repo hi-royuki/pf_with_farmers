@@ -1,7 +1,6 @@
 <!--農業体験一覧-->
 <div class="container px-5 px-sm-0">
  <div class="row">
-
     <div class="card" style="width: 20rem;">
      <div class="card-body">
       <!--ここからエラーメッセージ-->
@@ -51,7 +50,7 @@
    <%= link_to "イベントリクエスト履歴一覧", farmer_users_event_joins_path(@events) %>
    <p><%= link_to "イベント参加者リスト",  confirm_farmer_users_events_path %></p>
    <% @events.each do |event| %>
-   <div class="card-wrap">
+   <div class="card-wrap p-3">
     <div class="card" style="width: 36rem;">
      <!--プロフィール-->
      <%= link_to farmer_users_customer_path(event.farmer_user) do %>
@@ -70,8 +69,9 @@
       </p>
      </div>
     </div>
-     <% end %>
+
    </div>
+    <% end %>
   </div>
 
   </div>

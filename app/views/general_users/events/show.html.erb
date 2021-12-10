@@ -1,15 +1,42 @@
 <%= link_to "イベントリクエスト履歴一覧", general_users_event_joins_path(@event) %>
-<div>
-  <%= attachment_image_tag @event, :event_image %>
 
-  <h3><%= attachment_image_tag @event.farmer_user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %><%= @event.farmer_user.name %></h3>
+<div class="card w-50 mx-auto mt-4 shadow-lg">
 
+  <div class="card-wrap">
+    <div class="d-flex bd-highlight">
 
-  <p>イベント名:<%= @event.title %></p>
-  <p>日時:<%= @event.event_date %></p>
-  <p>参加費:￥<%= @event.price %></p>
-  <p>内容：<%= @event.introduction %></p>
+      <div class="p-2 flex-grow-1 bd-highlight">
+        <%= link_to farmer_users_customer_path(@event.farmer_user) do %>
+         <%= attachment_image_tag @event.farmer_user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", class: "circle" %><%= @event.farmer_user.name %>
+        <% end %>
+      </div>
 
-  <%= link_to "参加リクエスト", new_general_users_event_join_path(@event) %>
+      <div class="p-3 bd-highlight">
+       <i class="far fa-clock"><%= @event.created_at.strftime('%Y/%m/%d') %></i>
+      </div>
+    </div>
 
- </div>
+    <%= attachment_image_tag @event, :event_image, class: "card-img-top" %>
+    <div class="card-body">
+          <p class="card-title">
+          <strong><i class="far fa-flag"></i><span><%= @event.title %></span></strong>
+
+          </p>
+          <p class="card-body">
+           <%= @event.introduction %>
+          </p>
+          <h6 class="card-body p-3 border-top d-flex justify-content-center">
+           日時:<%= @event.event_date %>
+          </h6>
+          <h6 class="card-body p-3 border-top border-bottom d-flex justify-content-center">
+          参加費:<%= @event.price %>円
+          </h6>
+          <h6 class="card-body d-flex justify-content-center">
+             <%= link_to "体験したい！", new_general_users_event_join_path(@event) %>
+          </h6>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

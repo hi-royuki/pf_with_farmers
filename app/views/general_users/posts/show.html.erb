@@ -55,11 +55,16 @@
               <div class="p-2 flex-grow-1 bd-highlight"><%= post_comment.comment %></div>
               <div class="p-2 bd-highlight">
                 <i class="far fa-clock"><%= post_comment.created_at.strftime('%Y/%m/%d') %></i>
+                <% if post_comment.general_user == current_general_user %>
+                <%= link_to general_users_post_post_comment_path(post_comment.post, post_comment), method: :delete do %>
+                <h6 class="text-dark ml-2 p-2"><i class="far fa-trash-alt"></i></h6>
                 <% end %>
+              <% end %>
               </div>
             </div>
           </div>
          </div>
+         <% end %>
        </div>
     </div>
   </div>
