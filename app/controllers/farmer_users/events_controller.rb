@@ -1,12 +1,13 @@
 class FarmerUsers::EventsController < ApplicationController
-  
+
 before_action :authenticate_farmer_user!
-  def new
-    @event = Event.new
-  end
+  # def new
+
+  # end
 
   def index
-    @event = Event.all
+    @event = Event.new
+    @events = Event.all.order(created_at: :desc)
   end
 
   def show
@@ -19,7 +20,8 @@ before_action :authenticate_farmer_user!
     if @event.save
       redirect_to farmer_users_events_path
     else
-      render :new
+      @events = Event.all.order(created_at: :desc)
+      render action: :index
     end
 
   end

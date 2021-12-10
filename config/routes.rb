@@ -80,7 +80,7 @@ Rails.application.routes.draw do
    end
 
     #コメントは、投稿画像に対してコメントする。このため、post_commentsは、postに結びつくためネスト（親子関係）する
-    resources :posts, only: [:new, :create, :index, :show, :destroy] do
+    resources :posts, only: [:create, :index, :show, :destroy] do
      resources :post_comments, only: [:create, :destroy]
     end
 

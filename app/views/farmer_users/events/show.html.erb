@@ -1,15 +1,38 @@
 <!--投稿詳細ページ-->
-
-<%= link_to "参加リクエスト", new_farmer_users_event_join_path(@event) %>
-<div>
-  <%= attachment_image_tag @event, :event_image %>
-  <p>タイトル：<%= @event.title %></p>
-  <p>説明：<%= @event.introduction %></p>
-  <p>日時：<%= @event.event_date %></p>
-  <p>参加費：<%= @event.price %>円</p>
-  <p>ユーザーネーム：<%= @event.farmer_user.name %></p>
-  <% if @event.farmer_user == current_farmer_user %>
-  <%= link_to "削除", farmer_users_event_path(@event), method: :delete %>
-  
-  <% end %>
+<div class="card w-50 mx-auto mt-4 shadow-lg">
+  <%= link_to "参加リクエスト", new_farmer_users_event_join_path(@event) %>
+  <div class="card-wrap">
+    <div class="d-flex bd-highlight">
+      <div class="p-2 flex-grow-1 bd-highlight">
+        <%= link_to farmer_users_customer_path(@event.farmer_user) do %>
+         <%= attachment_image_tag @event.farmer_user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", class: "circle" %><%= @event.farmer_user.name %>
+        <% end %>
+      </div>
+      <div class="p-2 bd-highlight">
+        <i class="far fa-clock"><%= @event.created_at.strftime('%Y/%m/%d') %></i>
+      </div>
+      <div class="p-2 bd-highlight">
+         <% if @event.farmer_user == current_farmer_user %>
+          <%= link_to farmer_users_post_path(@event), method: :delete do %>
+          <h3 class="text-dark"><i class="far fa-trash-alt"></i></h3>
+          <% end %>
+         <% end %>
+       </div>
+    </div>
+    <%= attachment_image_tag @event, :event_image, class: "card-img-top" %>
+    <div class="card-body">
+      <div class="row">
+        <div class="card-title">
+          <strong><i class="far fa-flag"></i><span><%= @event.title %></span></strong>
+           <p class="card-text"><%= @event.introduction %></p>
+           <p class="card-text border-top">
+             日時：<%= @event.event_date %><br>
+             参加費：<%= @event.price %>円
+           </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+

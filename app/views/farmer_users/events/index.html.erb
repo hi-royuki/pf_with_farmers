@@ -1,18 +1,79 @@
-<!--農業日記一覧-->
- <%= link_to "投稿する", new_farmer_users_event_path %>
- <%= link_to "イベントリクエスト履歴一覧", farmer_users_event_joins_path(@event) %>
- <p><%= link_to "イベント参加者リスト",  confirm_farmer_users_events_path %></p>
-<% @event.each do |event| %>
-<div>
-  <%= link_to farmer_users_event_path(event.id) do %>
+<!--農業体験一覧-->
+<div class="container px-5 px-sm-0">
+ <div class="row">
 
-  <%= attachment_image_tag event, :event_image %>
-  <% end %>
+    <div class="card" style="width: 20rem;">
+     <div class="card-body">
+      <!--ここからエラーメッセージ-->
+      　<% if @event.errors.any? %>
+        <%= @event.errors.count %>件のエラーが発生しました。入力を確認してください。
+        <% end %>
+      　<!--ここまで-->
 
-  <p>イベント名:<%= event.title %></p>
-  <p>日時:<%= event.event_date %></p>
-  <p>参加費:￥<%= event.price %></p>
-  <p>内容：<%= event.introduction %></p>
-   <p>ユーザーネーム：<%= event.farmer_user.name %></p>
-</div>
-<% end %>
+      　<!--投稿機能-->
+      　<h1 class="card-title text-white p-3 mb-0", style="background-color: #21A937;"><strong>農業体験投稿</strong></h1>
+      　<%= form_with model: @event, url: farmer_users_events_path, local:true do |f| %>
+
+      　<div class="card-title">
+         <label for="book_title">画像<i class="fas fa-image"></i></label>
+         <%= f.attachment_field :event_image %>
+        </div>
+
+          <div class="card-title">
+              <label for="book_opinion">イベント名<i class="fas fa-flag"></i></label>
+              <%= f.text_field :title, class:"form-control" %>
+          </div>
+           <div class="card-title">
+              <label for="book_opinion">詳細<i class="fas fa-book"></i></label>
+              <%= f.text_area :introduction, class:"form-control" %>
+           </div>
+            <div class="card-title">
+              <label for="book_opinion">日時<i class="fas fa-book"></i></label>
+              <%= f.text_field :event_date, class:"form-control" %>
+            </div>
+
+            <div class="card-title">
+              <label for="book_opinion">参加費<i class="fas fa-book"></i></label>
+              <%= f.text_field :price, class:"form-control" %>
+            </div>
+
+           <div class="card-title">
+              <%= f.submit '投稿', class: "btn btn-success" %>
+              </div>
+           <% end %>
+          </div>
+      </div>
+
+
+
+  <div class="col-md-8 col-md-2 mx-auto">
+
+   <%= link_to "イベントリクエスト履歴一覧", farmer_users_event_joins_path(@events) %>
+   <p><%= link_to "イベント参加者リスト",  confirm_farmer_users_events_path %></p>
+   <% @events.each do |event| %>
+   <div class="card-wrap">
+    <div class="card" style="width: 36rem;">
+     <!--プロフィール-->
+     <%= link_to farmer_users_customer_path(event.farmer_user) do %>
+      <%= attachment_image_tag event.farmer_user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", class: "circle" %><%= event.farmer_user.name %>
+     <% end %>
+     <!--投稿一覧-->
+     <%= link_to farmer_users_event_path(event.id) do %>
+      <%= attachment_image_tag event, :event_image, :fill, 574, 574 %>
+     <% end %>
+     <div class="card-body">
+      <p class="card-title">
+       <strong><i class="far fa-flag"></i><span><%= event.title %></span></strong>
+      </p>
+      <p class="card-text">
+       <%= event.introduction %>
+      </p>
+     </div>
+    </div>
+     <% end %>
+   </div>
+  </div>
+
+  </div>
+
+ </div>
