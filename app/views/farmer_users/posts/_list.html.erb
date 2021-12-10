@@ -1,0 +1,27 @@
+   <div class="col-md-8 col-md-2 mx-auto">
+     <% posts.each do |post| %>
+     <div class="card-wrap">
+      <div class="card" style="width: 36rem;">
+        <%= link_to farmer_users_customer_path(post.farmer_user) do %>
+          <%= attachment_image_tag post.farmer_user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", class: "circle" %><%= post.farmer_user.name %>
+        <% end %>
+
+        <%= link_to farmer_users_post_path(post.id) do %>
+        <%= attachment_image_tag post, :image, :fill, 574, 574 %>
+        <% end %>
+         <div class="card-body">
+          <p class="card-title">
+            <strong><i class="far fa-flag"></i><span><%= post.title %></span></strong>
+          </p>
+          <p cass="card-text"><%= post.introduction %>
+          <%=link_to farmer_users_post_path(post.id) do %>
+           <div class="d-flex flex-row-reverse bd-highlight">
+               <div class="bd-highlight text-dark"><h3><strong><i class="fas fa-comments"></i></strong></div></h3>
+           </div>
+           <% end %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+    </div>
+   </div>
