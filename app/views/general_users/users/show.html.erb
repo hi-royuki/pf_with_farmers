@@ -1,40 +1,72 @@
 <!--一般マイページ-->
 <div class="container">
-  <div class="col-md-10 col-md-offset-1">
-    <div class="d-flex aligin-items-center">
-      <h3 class="p-3 md-10 bg-secondary text-white">マイページ</h3>
+  <div class="profile-wrap">
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <%= attachment_image_tag @general_user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "round-img" %>
+      </div>
+      <div class="col-md-8">
+        <div class="row">
+          <h1><%= @general_user.name %></h1>
+          <%= link_to "プロフィール編集", edit_general_users_users_path, class: "btn btn-outline-secondary fas fa-user-cog edit-profile-btn" %>
+        　<button type="button" class="setting" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-cogs"></i></button>
+        　 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">設定</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="list-group text-center">
+                <%= link_to "ログアウト", destroy_farmer_user_session_path, method: :delete, class: "list-group-item list-group-item-action" %>
+                <%= link_to "退会する", unsubscribe_general_users_users_path(@general_user), class: "list-group-item list-group-item-action" %>
+                <%= link_to "キャンセル", "#", class: "list-group-item list-group-item-action", "data-dismiss": "modal" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
     </div>
-
-    <table>
-      <tr>
-        <th><%= link_to "編集する", edit_general_users_users_path, class: "btn btn-outline-success" %></th>
-        <!--<th></th>-->
-      </tr>
-    </table>
-
-    <table class="table table-bordered">
-      <tbody>
-        <thead>
-        <tr>
-          <%= attachment_image_tag @general_user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-        </tr>
-        <tr>
-          <th class ="carum_title">ニックネーム</th>
-          <td class ="carum_date"><%= @general_user.name %></td>
-        </tr>
-
-        <tr>
-          <th class ="carum_title">メールアドレス</th>
-          <td class ="carum_date"><%= @general_user.email %></td>
-        </tr>
-        </thead>
-      </tbody>
-    </table>
-
-
-
-
-
-
   </div>
 </div>
+<div class="container">
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>農業体験依頼日</th>
+          <th>主催者</th>
+          <th>農業体験名</th>
+          <th>農業体験日</th>
+          <th>参加費</th>
+          <th>連絡先</th>
+        </tr>
+      </thead>
+
+    <tbody>
+      <% @joins.each do |join| %>
+      <tr>
+
+        <th scope="row"><%= join.created_at.strftime('%Y/%m/%d') %></th>
+
+        <th><%= join.event.farmer_user.name %></th>
+        <th>
+          <%= link_to general_users_event_path(join.event) do %>
+          <%= join.event.title %>
+         <% end %>
+        </th>
+        <th><%= join.event.event_date %></th>
+        <th><%= join.event.price %>円</th>
+        <th><%= join.event.farmer_user.email %></th>
+      </tr>
+    </tbody>
+     <% end %>
+  </table>
+
+  </div>
+
+</div>
+

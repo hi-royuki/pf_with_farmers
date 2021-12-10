@@ -1,52 +1,74 @@
 <!--マイページ-->
 <div class="container">
-  <div class="col-md-10 col-md-offset-1">
+  <div class="profile-wrap">
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <%= attachment_image_tag @farmer_user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "round-img" %>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <h1><%= @farmer_user.name %></h1>
+        <%= link_to "プロフィール編集", edit_farmer_users_users_path, class: "btn btn-outline-secondary fas fa-user-cog edit-profile-btn" %>
+        <button type="button" class="setting" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-cogs"></i></button>
 
-
-    <table>
-      <tr>
-
-        <th><%= link_to "編集する",edit_farmer_users_users_path, class: "btn btn-outline-success" %></th>
-
-        <!--<th></th>-->
-      </tr>
-    </table>
-
-    <table class="table table-bordered">
-      <tbody>
-        <thead>
-        <tr>
-          <%= attachment_image_tag @farmer_user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-        </tr>
-        <tr>
-          <th class ="carum_title">ニックネーム</th>
-          <td class ="carum_date"><%= @farmer_user.name %></td>
-        </tr>
-
-        <tr>
-          <th class ="carum_title">メールアドレス</th>
-          <td class ="carum_date"><%= @farmer_user.email %></td>
-        </tr>
-        </thead>
-      </tbody>
-    </table>
-
-
-    <% @posts.each do |post| %>
-<div>
-
-  <p>画像：<%= attachment_image_tag post, :image %></p>
-  <p>ショップ名：<%= post.title %></p>
-  <p>説明：<%= post.introduction %></p>
-
-  <%= link_to "削除", farmer_users_post_path(post), method: :delete %>
-
-
-
-
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">設定</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="list-group text-center">
+                <%= link_to "ログアウト", destroy_farmer_user_session_path, method: :delete, class: "list-group-item list-group-item-action" %>
+                <%= link_to "キャンセル", "#", class: "list-group-item list-group-item-action", "data-dismiss": "modal" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="row">
+          <p>
+          　<%= @farmer_user.email %>
+          </p>
+        </div>
+    </div>
+  </div>
+ </div>
 </div>
-<% end %>
-
-
+<div class="container">
+  <div class="row">
+    <% @posts.each do |post| %>
+     <div class="col-lg-4 col-md-6 mb-4">
+       <%= link_to farmer_users_post_path(post.id) do %>
+       <%= attachment_image_tag post, :image, :fill, 370, 370 %>
+       <% end %>
+     </div>
+      <% end %>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

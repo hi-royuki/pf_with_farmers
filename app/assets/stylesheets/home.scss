@@ -12,14 +12,21 @@
 .title {
   position: relative;
   color: #FFFFFF;
-  font-size: 60px;
+  font-size: 80px;
   font-family: Impact;
+  text-shadow: 3px 3px 0 #cd5;
+  -webkit-text-stroke: 1px #888;
+  text-stroke: 1px #888;
 }
 
 .sub-title {
   font-family: Georgia, serif;
   color: #FFFFFF;
   font-family: monospace;
+  font-size: 40px;
+  text-shadow: 3px 3px 0 #cd5;
+  -webkit-text-stroke: 1px #888;
+  text-stroke: 1px #888;
 }
 
 .text-center {

@@ -3,6 +3,7 @@ class GeneralUsers::UsersController < ApplicationController
 
   def show
     @general_user = current_general_user
+    @joins = @general_user.joins.all.order(created_at: :desc)
   end
 
   def edit
