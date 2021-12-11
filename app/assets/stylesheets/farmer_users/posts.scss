@@ -5,3 +5,16 @@
 //       border-radius: 50%;
 //       object-fit: cover;
 //     }
+
+.setting {
+  background-repeat: no-repeat;
+  height: 10px;
+  width: 10px;
+  background-color: transparent;
+  margin: 18px 0 0 10px;
+  background-size: 22px!important;
+  border: none;
+  &:hover {
+    cursor: pointer;
+  }
+}
