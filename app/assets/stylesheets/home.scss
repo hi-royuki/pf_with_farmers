@@ -80,22 +80,32 @@
   margin: 50px auto;
 }
 
+.about-top{
+  padding: 30px 30px;
+  height: 100%;
+  background: #FFFFDE;
+}
 
 .about-green-contaner{
-  max-width: 700px;
-  margin: 0 auto;
+  max-width: 540px;
   width: 100%;
   padding: 10px 75px 100px;
-  display: block;
-  flex: 1;
-  flex-basis: auto;
   box-sizing: border-box;
 }
 
 .about-title{
-  position: relative;
+  padding: 10px;
   color: #FFFFFF;
   text-shadow: 3px 3px 0 #cd5;
   -webkit-text-stroke: 1px #888;
   text-stroke: 1px #888;
+}
+
+
+.about-title-features {
+  margin: 5px;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #009350;
+  border-radius: 20px;
 }

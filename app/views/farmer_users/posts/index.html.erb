@@ -1,41 +1,44 @@
-
-<div class="contaner">
-  <div class="d-flex justify-content-center">
-  <h3><button type="button" class="setting" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i></button></h3>
-  </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">農業日記投稿</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <div class="list-group text-center">
-                <%= form_with model: @post, url: farmer_users_posts_path, local:true do |f| %>
-                 <div class="card-title">
-                  <%= f.attachment_field :image %>
-                 </div>
-                 <div class="card-title">
-              <label for="book_opinion">タイトル</label>
-              <%= f.text_field :title, class:"form-control" %>
-          </div>
+<div class="container">
+  <% if @post.errors.any? %>
+  　<%= @post.errors.count %>件のエラーが発生しました。入力を確認してください。
+  <% end %>
+  <!--新規投稿-->
+ <div class="d-flex justify-content-start">
+  <h3><button type="button" class="setting" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus btn btn-success"></i></button></h3>
+ </div>
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">農業日記投稿</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="list-group text-center">
+          <%= form_with model: @post, url: farmer_users_posts_path, local:true do |f| %>
            <div class="card-title">
-              <label for="book_opinion">日記</label>
-              <%= f.text_area :introduction , class:"form-control" %>
-
+            <%= f.attachment_field :image %>
            </div>
            <div class="card-title">
-              <%= f.submit '投稿', class: "btn btn-success" %>
-            </div>
-          </div>
-                <% end %>
-
-          </div>
-        </div>
+             <label for="book_opinion">タイトル</label>
+             <%= f.text_field :title, class:"form-control" %>
+           </div>
+           <div class="card-title">
+            <label for="book_opinion">日記</label>
+            <%= f.text_area :introduction , class:"form-control" %>
+           </div>
+           <div class="card-title">
+            <%= f.submit '投稿', class: "btn btn-success" %>
+           </div>
+         </div>
+          <% end %>
       </div>
+    </div>
+  </div>
+</div>
 
+<div class="contaner">
           <!--農業日記一覧-->
   <% @posts.each do |post| %>
 <div class="card w-50 mx-auto mt-4 shadow-lg">

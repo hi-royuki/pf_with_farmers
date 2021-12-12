@@ -32,3 +32,38 @@
     cursor: pointer;
   }
 }
+
+.area {
+  width: 100%;
+  margin: auto;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.tab_class {
+  width: calc(250%/5);
+  height: 50px;
+  background-color: #F5FFFA;
+  line-height: 50px;
+  font-size: 15px;
+  text-align: center;
+  float: left;
+  order: -1;
+}
+.content_class {
+  display: none;
+  width: 100%;
+}
+
+input:checked + .tab_class + .content_class {
+  display: block;
+}
+
+input[name="tab_name"] {
+  display: none;
+}
+
+input:checked + .tab_class {
+  background-color: #32CD32;
+  color: aliceblue;
+}

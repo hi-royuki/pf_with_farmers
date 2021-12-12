@@ -19,7 +19,7 @@
         <!--メールアドレス-->
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text" aria-hidden="true"><i class="fas fa-user"></i></span>
+            <span class="input-group-text" aria-hidden="true"><i class="fas fa-envelope"></i></span>
           </div>
           <%= f.email_field :email, autofocus: true, class:"form-control", id:"inputEmail", placeholder:"メールアドレス" %>
         </div>
@@ -38,7 +38,7 @@
             <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", id:"inputConfirmPassword", placeholder:"パスワード確認" %>
           </div>
 
-          <%= f.submit "農家ユーザーとして新規登録", class:"btn btn-block btn-info mt-5" %>
+          <%= f.submit "農家ユーザーとして新規登録", class:"btn btn-block btn-success mt-5" %>
 
       <% end %>
 

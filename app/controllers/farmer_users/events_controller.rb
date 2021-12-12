@@ -2,7 +2,6 @@ class FarmerUsers::EventsController < ApplicationController
 
 before_action :authenticate_farmer_user!
   # def new
-
   # end
 
   def index

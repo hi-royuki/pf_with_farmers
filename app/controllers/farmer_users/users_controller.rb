@@ -4,6 +4,7 @@ class FarmerUsers::UsersController < ApplicationController
   def show
     @farmer_user = current_farmer_user
     @posts = @farmer_user.posts.all.order(created_at: :desc)
+    @events = @farmer_user.events.all.order(created_at: :desc)
   end
 
   def edit
