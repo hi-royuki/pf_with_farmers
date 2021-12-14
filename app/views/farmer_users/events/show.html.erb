@@ -1,6 +1,6 @@
 <!--投稿詳細ページ-->
 <div class="card w-50 mx-auto mt-4 shadow-lg">
-  <%= link_to "参加リクエスト", new_farmer_users_event_join_path(@event), class: "btn btn-info"%>
+
   <div class="card-wrap">
     <div class="d-flex bd-highlight">
       <div class="p-2 flex-grow-1 bd-highlight">
@@ -21,14 +21,19 @@
     </div>
     <%= attachment_image_tag @event, :event_image, class: "card-img-top" %>
     <div class="card-body">
-      <div class="row">
-        <div class="card-title">
-          <strong><i class="far fa-flag"></i><span><%= @event.title %></span></strong>
-           <p class="card-text"><%= @event.introduction %></p>
-           <p class="card-text border-top">
-             日時：<%= @event.event_date %><br>
-             参加費：<%= @event.price %>円
-           </p>
+       <p class="card-title">
+         <strong><i class="far fa-flag"></i><span><%= @event.title %></span></strong>
+       </p>
+       <p class="card-body">
+         <%= @event.introduction %>
+       </p>
+       <h6 class="card-body p-3 border-top d-flex justify-content-center">
+          日時:<%= @event.event_date %>
+       </h6>
+       <h6 class="card-body p-3 border-top border-bottom d-flex justify-content-center">
+          参加費:<%= @event.price %>円
+        </h6>
+        <%= link_to "参加リクエスト", new_farmer_users_event_join_path(@event), class: "btn btn-outline-primary d-flex justify-content-center" %>
         </div>
       </div>
     </div>

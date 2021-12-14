@@ -13,6 +13,12 @@ class FarmerUsers::JoinsController < ApplicationController
     @join.farmer_user_id = current_farmer_user.id
   end
 
+  def back
+    @event = Event.find(params[:event_id])
+    @join = Join.new(join_params)
+    render :new
+  end
+
   def create
     @event = Event.find(params[:event_id])
     @join = current_farmer_user.joins.new(join_params)

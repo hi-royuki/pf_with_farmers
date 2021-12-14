@@ -30,9 +30,9 @@
             <li class="nav-item">
               <%= link_to 'マイページ', farmer_users_users_path(current_farmer_user.id), class: 'fas fa-house-user nav-link text-success' %>
             </li>
-            <li class="nav-item">
-              <%= link_to "ログアウト", destroy_farmer_user_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-success' %>
-            </li>
+            <!--<li class="nav-item">-->
+            <!--  %= link_to "ログアウト", destroy_farmer_user_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-success' %>-->
+            <!--</li>-->
 
             <% elsif general_user_signed_in? %>
             <li class="nav-item">
@@ -44,9 +44,9 @@
             <li class="nav-item">
               <%= link_to 'マイページ', general_users_users_path(current_general_user.id), class: 'fas fa-home-user nav-link text-success' %>
             </li>
-            <li class="nav-item">
-              <%= link_to "ログアウト", destroy_general_user_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-success' %>
-            </li>
+            <!--<li class="nav-item">-->
+            <!--  %= link_to "ログアウト", destroy_general_user_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-success' %>-->
+            <!--</li>-->
 
             <% else %>
             <li class="nav-item">

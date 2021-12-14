@@ -13,13 +13,15 @@
           <th>備考（要望等）</th>
         </tr>
       </thead>
+
+
        <% @events.each do |event| %>
        <% @joins.where(event_id: event.id).each do |join| %>
         <body>
           <tr>
             <td><%= event.title %></td>
             <td><%= event.event_date %></td>
-      
+
             <td><%= join.name %> </td>
             <td><%= mail_to join.email %></td>
             <td><%= join.phone %></td>

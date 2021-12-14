@@ -65,7 +65,7 @@ Rails.application.routes.draw do
     resources :events, only: [:new, :create, :index, :show, :destroy] do
       collection do
         get 'confirm'
-        # post 'update'
+      # post 'update'
 
       end
      resources :joins, only: [:new, :create, :index] do
