@@ -1,0 +1,30 @@
+<!--農業体験リクエスト確認フォーム-->
+      <table>
+        <tbody>
+          <tr>
+            <td class="text-center" style="width: 30%;">代表者氏名</td>
+            <td><%= @join.name %></td>
+          </tr>
+          <tr>
+            <td class="text-center">メールアドレス</td>
+            <td style="white-space: pre-wrap;"><%= @join.email %></td>
+          </tr>
+
+          <tr>
+            <td class="text-center">電話番号</td>
+            <td style="white-space: pre-wrap;"><%= @join.phone %></td>
+          </tr>
+
+          <tr>
+            <td class="text-center">参加人数</td>
+            <td style="white-space: pre-wrap;"><%= @join.people %>名</td>
+          </tr>
+
+          <tr>
+            <td class="text-center">備考</td>
+            <td style="white-space: pre-wrap;"><%= @join.memo %></td>
+          </tr>
+
+        </tbody>
+      </table>
+
