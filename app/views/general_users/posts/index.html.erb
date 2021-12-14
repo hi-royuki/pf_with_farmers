@@ -1,32 +1,47 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-8 col-md-2 mx-auto">
-      <% @posts.each do |post| %>
-      <div class="card-wrap p-3">
-        <div class="card" style="width: 36rem;">
+  <% @posts.each do |post| %>
+  <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <div class="card-wrap">
+      <div class="d-flex bd-highlight">
+        <div class="p-2 flex-grow-1 bd-highlight">
           <%= link_to farmer_users_customer_path(post.farmer_user) do %>
-           <%= attachment_image_tag post.farmer_user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg", class: "circle" %><%= post.farmer_user.name %>
+           <%= attachment_image_tag post.farmer_user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", class: "circle" %><%= post.farmer_user.name %>
           <% end %>
-          <%= link_to general_users_post_path(post.id) do %>
-            <%= attachment_image_tag post, :image, :fill, 574, 574 %>
-          <% end %>
-          <div class="card-body">
-            <p class="card-title"><strong><i class="far fa-flag"></i><span><%= post.title %></span></strong></p>
-            <p cass="card-text"><%= post.introduction %>
+        </div>
+        <div class="p-2 bd-highlight">
+         <i class="far fa-clock"><%= post.created_at.strftime('%Y/%m/%d') %></i>
+        </div>
+      </div>
+      <%= link_to general_users_post_path(post.id) do %>
+        <%= attachment_image_tag post, :image, class:"card-img-top"; %>
+      <% end %>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-10">
+            <p card="card-title">
+              <strong><i class="far fa-flag"></i><span><%= post.title %></span></strong>
+            </p>
+            <div class="d-flex bd-highlight">
+              <div class="p-2 flex-grow-1 bd-highlight">
+                <p class="card-text">
+                  <%= post.introduction %>
+              </div>
+              <div class="p-2 bd-highlight">
              <%=link_to general_users_post_path(post.id) do %>
-             <div class="d-flex flex-row-reverse bd-highlight">
-               <div class="bd-highlight text-dark"><h3><strong><i class="fas fa-comments"></i></strong></div></h3>
-             </div>
+               <h3><strong><i class="fas fa-comments"></i></strong></h3>
              <% end %>
-           </p>
-          </div>
+             </div>
+            </div>
+                </p>
         </div>
 
       </div>
-       <% end %>
+
     </div>
+   </div>
   </div>
+   <% end %>
 </div>
 
 
-
+   
