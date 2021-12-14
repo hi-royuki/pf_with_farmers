@@ -36,7 +36,7 @@ class GeneralUsers::JoinsController < ApplicationController
 
   def index
     @general_user = current_general_user
-    @joins = @general_user.joins.all
+    @joins = @general_user.joins.all.order(created_at: :desc)
   end
 
   # def show

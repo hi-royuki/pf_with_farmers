@@ -35,7 +35,7 @@ class FarmerUsers::JoinsController < ApplicationController
 
   def index
     @farmer_user = current_farmer_user
-    @joins = @farmer_user.joins.all
+    @joins = @farmer_user.joins.all.order(created_at: :desc)
   end
 
   # def show
