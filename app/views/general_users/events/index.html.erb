@@ -1,7 +1,14 @@
 <div class="container">
-  <%= link_to "イベントリクエスト履歴一覧", general_users_event_joins_path(@events) %>
-  <% @events.each do |event| %>
+    <%= link_to "農業体験リクエスト履歴一覧", general_users_event_joins_path(@events), class: "btn btn-success " %>
+    <%= form_with url: search_general_users_events_path, method: :get, local: true do |f| %>
+    <%= f.text_field :keyword, value: @keyword,placeholder:"キーワドを入力してください" %>
+    <%= f.submit "検索", class: "btn btn-outline-secondary" %>
+  <% end %>
+</div>
 
+
+  <% @events.each do |event| %>
+<div class="container">
 <div class="card w-50 mx-auto mt-4 shadow-lg">
     <div class="card-wrap">
       <div class="d-flex bd-highlight">

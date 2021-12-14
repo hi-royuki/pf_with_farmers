@@ -8,4 +8,10 @@ class GeneralUsers::EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def search
+    @events = Event.search(params[:keyword])
+    @keyword = params[:keyword]
+    render "index"
+  end
+
 end

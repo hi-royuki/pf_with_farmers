@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     end
     #joinは、イベントに対して参加フォームを送信する。joinは、に結びつくためネスト（親子関係）する
     resources :events, only: [:index, :show] do
+       get 'search', on: :collection
       resources :joins, only: [:new, :create, :index, :show] do
       collection do
         post 'confirm'
