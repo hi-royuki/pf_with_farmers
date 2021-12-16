@@ -7,9 +7,9 @@ class ApplicationController < ActionController::Base
    def after_sign_in_path_for(resource)
      case resource
      when FarmerUser
-        farmer_users_posts_path
+        farmer_users_users_path
      when GeneralUser
-        general_users_posts_path
+        general_users_users_path
      end
    end
 
