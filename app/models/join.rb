@@ -5,8 +5,5 @@ class Join < ApplicationRecord
   belongs_to :event, optional: true
   has_many :join_details, dependent: :destroy
 
-   validates :email, presence: true
-   validates :people, presence: true
-   validates :name, presence: true
-   validates :phone, presence: true
+   validates :email, :people, :name, presence: true
 end

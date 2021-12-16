@@ -6,8 +6,8 @@ class FarmerUsers::UsersController < ApplicationController
     @posts = @farmer_user.posts.all.order(created_at: :desc)
     @events = @farmer_user.events.all.order(created_at: :desc)
     @joins = @farmer_user.joins.all.order(created_at: :desc)
-    @join_lists = Join.all
-    @event_lists = @farmer_user.events.all
+    @join_lists = Join.all.order(created_at: :desc)
+    @event_lists = @farmer_user.events.all.order(created_at: :desc)
 
   end
 

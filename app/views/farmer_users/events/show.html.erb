@@ -13,7 +13,7 @@
       </div>
       <div class="p-2 bd-highlight">
          <% if @event.farmer_user == current_farmer_user %>
-          <%= link_to farmer_users_post_path(@event), method: :delete do %>
+          <%= link_to farmer_users_event_path(@event), method: :delete do %>
           <h3 class="text-dark"><i class="far fa-trash-alt"></i></h3>
           <% end %>
          <% end %>

@@ -34,6 +34,12 @@
           　<%= @farmer_user.email %>
           </p>
         </div>
+        <div class="row">
+          <p class="text-secondary">
+          　※農業体験希望者一覧を確認して連絡しましょう！
+          </p>
+        </div>
+
     </div>
   </div>
  </div>
@@ -103,7 +109,7 @@
                   </th>
                   <th><%= join.event.event_date %></th>
                   <th><%= join.event.price %>円</th>
-                  <th><%= join.event.farmer_user.email %></th>
+                  <th><%= mail_to join.event.farmer_user.email %></th>
                 </tr>
               </tbody>
               <% end %>
@@ -117,7 +123,7 @@
         <div class="content_class">
           <div class="container">
             <table class="table table-bordered">
-              <thead class="thead-light">
+              <thead>
                 <tr>
                   <th>農業体験名</th>
                   <th>農業体験日</th>

@@ -1,9 +1,24 @@
-<h4 class="text-center">本当に退会しますか</h4>
+<div class="container">
+  <div class="row">
+    <div class="card bg-light mb-3" style="max-width: 40rem;">
+      <div class="card-header"><h4 class="text-center">本当に退会しますか</h4></div>
+      <div class="card-body">
+        <h5 class="card-title">退会する場合は「退会する」をクリックしてください。</h5>
+        <p class="card-text"><%= link_to "退会しない", farmer_users_users_path, class: "btn btn-primary" %><%= link_to "退会する", withdraw_farmer_users_users_path, method: :PATCH, data: { confirm: '退会しますか？' }, class: "btn btn-danger ml-4" %></p>
+        <p class="card-text"></p>
+      </div>
+    </div>
+
 <p class ="text-center">
-  退会する場合は「退会する」をクリックしてください。
+
 </p>
 
 <div class="text-center">
-  <%= link_to "退会しない", edit_farmer_users_users_path, class: "btn btn-primary" %>
-  <%= link_to "退会する", withdraw_farmer_users_users_path, method: :PATCH, data: { confirm: '退会しますか？' }, class: "btn btn-danger ml-4" %>
+
+
 </div>
+  </div>
+</div>
+
+
+

@@ -1,62 +1,43 @@
 <div class="container">
-  <div class="row no-gutters">
-    <% if @join.errors.any? %>
-    <%= @join.errors.count %>件のエラーが発生しました
-    <% @join.errors.full_messages.each do |message| %>
-    <%= message %>
-    <% end %>
-    <% end %>
+  <div class="row">
     <div class="col-md col-sm-10 mx-2 mx-sm-auto text-center shadow-lg rounded px-0 my-5">
-      <h5 class="text-dark bg-light py-4 mb-0">参加リクエストフォーム</h5>
+      <h5 class="text-dark bg-light py-4 mb-0"><%= @event.title %>リクエストフォーム</h5>
       <div class="form-body p-4">
-
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <h3><%= @event.title %></h3>
-          </div>
+         <%= form_with model: @join, url: confirm_farmer_users_event_joins_path, local: true do |f| %>
+        <% if @join.errors.any? %>
+    　　　<%= @join.errors.count %>件入力されていない項目があったためエラーが発生しました
+  　　　　  <% end %>
+       <form class="was-validated">
+        <div class="mb-3">
+            <%= f.label :name, "代表者氏名（必須）", class:"ol-sm-7 col-form-label" %>
+            <%= f.text_field :name, class:"form-control", id:"name", placeholder:"農家太郎" %>
         </div>
 
-
-        <%= form_with model: @join, url: confirm_farmer_users_event_joins_path, local: true do |f| %>
-
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <%= f.label :name, "代表者指名（必須）", class:"ol-sm-7 col-form-label" %>
-            <%= f.text_field :name, class:"form-control", placeholder:"農家太郎" %>
-          </div>
-        </div>
-
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
+        <div class="mb-3">
             <%= f.label :email, "連絡先（必須）", class:"ol-sm-7 col-form-label" %>
-            <%= f.text_field :email, class:"form-control", placeholder:"メールアドレス" %>
-          </div>
+            <%= f.text_field :email, class:"form-control", id:"email", placeholder:"メールアドレス" %>
         </div>
 
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
+        <div class="mb-3">
             <%= f.label :phone, "連絡先", class:"ol-sm-7 col-form-label" %>
-            <%= f.text_field :phone, class:"form-control", placeholder:"電話番号（ハイフンなし）" %>
-          </div>
+            <%= f.text_field :phone, class:"form-control", id:"phone", placeholder:"電話番号（ハイフンなし）" %>
         </div>
 
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <%= f.label :people, "参加希望人数", class:"ol-sm-7 col-form-label" %>
-            <%= f.text_field :people, class:"form-control", placeholder:"半角数字で入力" %>
-          </div>
+        <div class="mb-3">
+            <%= f.label :people, "参加希望人数（必須）", class:"ol-sm-7 col-form-label" %>
+            <%= f.text_field :people, class:"form-control", id:"people", placeholder:"半角数字で入力" %>
         </div>
 
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
+        <div class="mb-3">
+
             <%= f.label :memo, "備考", class:"ol-sm-7 col-form-label" %>
-            <%= f.text_area :memo, class:"form-control", placeholder:"要望等ありましたらここに記入してください。" %>
-          </div>
+            <%= f.text_area :memo, class:"form-control", id:"memo", placeholder:"要望等ありましたらここに記入してください。" %>
+
         </div>
         <div class="p-3 md-3">
           <%= f.submit "確認画面へ進む", class: "btn btn-success text-center" %>
         </div>
-
+    </form>
       </div>
 
 

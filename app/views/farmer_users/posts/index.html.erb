@@ -1,10 +1,10 @@
 <div class="container">
-  
+
   <% if @post.errors.any? %>
   　<%= @post.errors.count %>件のエラーが発生しました。入力を確認してください。
   <% end %>
   <!--新規投稿-->
- <div class="d-flex justify-content-start">
+ <div class="d-flex justify-content-center">
   <h3><button type="button" class="setting" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus btn btn-success"></i></button></h3>
  </div>
  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -39,9 +39,10 @@
   </div>
 </div>
 
+<% @posts.each do |post| %>
 <div class="contaner">
           <!--農業日記一覧-->
-  <% @posts.each do |post| %>
+
 <div class="card w-50 mx-auto mt-4 shadow-lg">
   <div class="card-wrap">
     <div class="d-flex bd-highlight">
@@ -80,9 +81,10 @@
     </div>
    </div>
   </div>
+  <% end %>
 </div>
 
-   <% end %>
+
 
 
 
