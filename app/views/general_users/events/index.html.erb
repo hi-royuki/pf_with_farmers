@@ -1,9 +1,10 @@
 <div class="container">
-    <%= link_to "農業体験リクエスト履歴一覧", general_users_event_joins_path(@events), class: "btn btn-success " %>
-    <%= form_with url: search_general_users_events_path, method: :get, local: true do |f| %>
-    <%= f.text_field :keyword, value: @keyword,placeholder:"キーワドを入力してください" %>
+  <%= form_with url: search_general_users_events_path, method: :get, local: true do |f| %>
+    <%= f.text_field :keyword, value: @keyword,placeholder:"イチゴ" %>
     <%= f.submit "検索", class: "btn btn-outline-secondary" %>
   <% end %>
+    <%= link_to "農業体験リクエスト履歴一覧", general_users_event_joins_path(@events), class: "btn btn-success " %>
+    
 </div>
 
 

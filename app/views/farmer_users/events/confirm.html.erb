@@ -7,6 +7,7 @@
           <th>農業体験名</th>
           <th>農業体験日</th>
           <th>体験希望者</th>
+          <th>申込日</th>
           <th>メールアドレス</th>
           <th>電話番号</th>
           <th>参加人数</th>
@@ -21,8 +22,8 @@
           <tr>
             <td><%= event.title %></td>
             <td><%= event.event_date %></td>
-
             <td><%= join.name %> </td>
+            <td><%= join.created_at.to_s(:datetime_jp) %></td>
             <td><%= mail_to join.email %></td>
             <td><%= join.phone %></td>
             <td><%= join.people %>名</td>

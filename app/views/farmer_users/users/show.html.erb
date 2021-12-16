@@ -72,6 +72,80 @@
            </div>
           </div>
         </div>
+
+        <input type="radio" name="tab_name" id="tab3" >
+        <label class="tab_class" for="tab3"><strong>農業体験リクエスト一覧</strong></label>
+        <div class="content_class">
+         <div class="container">
+           <table class="table table-striped">
+             <thead>
+                  <tr>
+                    <th>農業体験依頼日</th>
+                    <th>主催者</th>
+                    <th>農業体験名</th>
+                    <th>農業体験日</th>
+                    <th>参加費</th>
+                    <th>連絡先</th>
+                  </tr>
+                </thead>
+
+              <tbody>
+                <% @joins.each do |join| %>
+                <tr>
+
+                  <th scope="row"><%= join.created_at.strftime('%Y/%m/%d') %></th>
+
+                  <th><%= join.event.farmer_user.name %></th>
+                  <th>
+                    <%= link_to farmer_users_event_path(join.event) do %>
+                    <%= join.event.title %>
+                   <% end %>
+                  </th>
+                  <th><%= join.event.event_date %></th>
+                  <th><%= join.event.price %>円</th>
+                  <th><%= join.event.farmer_user.email %></th>
+                </tr>
+              </tbody>
+              <% end %>
+            </table>
+
+         </div>
+        </div>
+
+        <input type="radio" name="tab_name" id="tab4" >
+        <label class="tab_class" for="tab4"><strong>農業体験希望者一覧</strong></label>
+        <div class="content_class">
+          <div class="container">
+            <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr>
+                  <th>農業体験名</th>
+                  <th>農業体験日</th>
+                  <th>体験希望者</th>
+                  <th>申込日</th>
+                  <th>メールアドレス</th>
+                  <th>電話番号</th>
+                  <th>参加人数</th>
+                  <th>備考（要望等）</th>
+                </tr>
+              </thead>
+              <% @event_lists.each do |event| %>
+               <% @join_lists.where(event_id: event.id).each do |join| %>
+                <body>
+                  <tr>
+                    <td><%= event.title %></td>
+                    <td><%= event.event_date %></td>
+                    <td><%= join.name %> </td>
+                    <td><%= join.created_at.to_s(:datetime_jp) %></td>
+                    <td><%= mail_to join.email %></td>
+                    <td><%= join.phone %></td>
+                    <td><%= join.people %>名</td>
+                    <td><%= join.memo %></td>
+                    <% end %>
+                   <% end %>
+          </div>
+        </div>
+
        </div>
     </div>
 </div>

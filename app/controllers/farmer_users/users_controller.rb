@@ -5,6 +5,10 @@ class FarmerUsers::UsersController < ApplicationController
     @farmer_user = current_farmer_user
     @posts = @farmer_user.posts.all.order(created_at: :desc)
     @events = @farmer_user.events.all.order(created_at: :desc)
+    @joins = @farmer_user.joins.all.order(created_at: :desc)
+    @join_lists = Join.all
+    @event_lists = @farmer_user.events.all
+
   end
 
   def edit

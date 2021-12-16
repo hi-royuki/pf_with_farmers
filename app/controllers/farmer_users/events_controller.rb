@@ -9,6 +9,13 @@ before_action :authenticate_farmer_user!
     @events = Event.all.order(created_at: :desc)
   end
 
+  def search
+    @event = Event.new
+    @events = Event.search(params[:keyword])
+    @keyword = params[:keyword]
+    render "index"
+  end
+
   def show
     @event = Event.find(params[:id])
   end
@@ -39,6 +46,8 @@ before_action :authenticate_farmer_user!
     @joins = Join.all
 
   end
+
+
 
 
   # def updated
