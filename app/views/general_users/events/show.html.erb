@@ -6,7 +6,7 @@
     <div class="d-flex bd-highlight">
 
       <div class="p-2 flex-grow-1 bd-highlight">
-        <%= link_to farmer_users_customer_path(@event.farmer_user) do %>
+        <%= link_to general_users_customer_path(@event.farmer_user) do %>
          <%= attachment_image_tag @event.farmer_user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", class: "circle" %><%= @event.farmer_user.name %>
         <% end %>
       </div>

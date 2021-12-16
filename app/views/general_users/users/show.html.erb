@@ -60,7 +60,7 @@
         </th>
         <th><%= join.event.event_date %></th>
         <th><%= join.event.price %>円</th>
-        <th><%= join.event.farmer_user.email %></th>
+        <th><%= mail_to join.event.farmer_user.email %></th>
       </tr>
     </tbody>
      <% end %>

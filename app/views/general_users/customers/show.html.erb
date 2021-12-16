@@ -1,34 +1,52 @@
- <table class="table table-bordered">
-      <tbody>
-        <thead>
-        <tr>
-          <%= attachment_image_tag @farmer_user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-        </tr>
-        <tr>
-          <th class ="carum_title">ニックネーム</th>
-          <td class ="carum_date"><%= @farmer_user.name %></td>
-        </tr>
-
-        <tr>
-          <th class ="carum_title">メールアドレス</th>
-          <td class ="carum_date"><%= @farmer_user.email %></td>
-        </tr>
-        </thead>
-      </tbody>
-    </table>
-
-
-    <% @posts.each do |post| %>
-<div>
-
-  <p>画像：<%= attachment_image_tag post, :image %></p>
-  <p>ショップ名：<%= post.title %></p>
-  <p>説明：<%= post.introduction %></p>
-
-</div>
-<% end %>
-
-
-
+<div class="container">
+  <div class="profil-wrap">
+    <div class="row">
+      <div class="co-md-4 text-ceter">
+        <%= attachment_image_tag @farmer_user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "round-img" %>
+      </div>
+      <div class="col-md-8 p-5">
+        <div class="row">
+          <h1><%= @farmer_user.name %></h1>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+<div class="container">
+  <div class="row">
+    <div class="area">
+      <input type="radio" name="tab_name" id="tab1" checked>
+      <label class="tab_class" for="tab1"><i class="fas fa-book"></i></label>
+      <div class="content_class">
+        <div class="container">
+          <div class="row">
+            <% @posts.each do |post| %>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <%= link_to general_users_post_path(post.id) do %>
+              <%= attachment_image_tag post, :image, :fill, 370, 370 %>
+              <% end %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <input type="radio" name="tab_name" id="tab2" >
+      <label class="tab_class" for="tab2"><i class="fas fa-tractor user-font"></i></label>
+      <div class="content_class">
+        <div class="container">
+          <div class="row">
+            <% @events.each do |event| %>
+            <div class="col-lg-4 col-md-6 mb-4">
+             <%= link_to farmer_users_event_path(event.id) do %>
+             <%= attachment_image_tag event, :event_image, :fill, 370, 370 %>
+             <% end %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
