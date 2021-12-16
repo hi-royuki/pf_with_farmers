@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row no-gutters">
     <div class="col-md col-sm-10 mx-2 mx-sm-auto text-center shadow-lg rounded px-0 my-5">
-      <h5 class="text-dark bg-light py-4 mb-0">一般ユーザー新規登録画面</h5>
+      <h5 class="text-black-50 table-info py-4 mb-0">一般ユーザー新規登録画面</h5>
       <div class="form-body p-4">
         <%= form_with model: @general_user, url: general_user_registration_path, id: 'new_general_user', class: 'new_general_user', local: true do |f| %>
         <%= render "general_users/shared/error_messages", resource: resource %>

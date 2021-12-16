@@ -1,5 +1,5 @@
 class GeneralUsers::JoinsController < ApplicationController
-
+before_action :authenticate_general_user!
   def new
     @event = Event.find(params[:event_id])
     @join = Join.new

@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row no-gutters">
     <div class="col-md col-sm-10 mx-2 mx-sm-auto text-center shadow-lg rounded px-0 my-5">
-      <h5 class="text-dark bg-light py-4 mb-0">農家ユーザー新規登録画面</h5>
+      <h5 class="text-black-50 table-success py-4 mb-0">農家ユーザー新規登録画面</h5>
       <div class="form-body p-4">
         <%= form_with model: @farmer_user, url: farmer_user_registration_path, id: 'new_farmer_user', class: 'new_farmer_user', local: true do |f| %>
         <%= render "farmer_users/shared/error_messages", resource: resource %>
@@ -38,9 +38,22 @@
             <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", id:"inputConfirmPassword", placeholder:"パスワード確認" %>
           </div>
 
-          <%= f.submit "農家ユーザーとして新規登録", class:"btn btn-block btn-success mt-5" %>
+          <div class="row">
+          <p class="text-secondary">
+          　<i class="fas fa-exclamation-circle"></i>登録時のメールアドレスを農業体験時の連絡手段として使用します。
+          </p>
+        </div>
+        <!--<div class="row">-->
+        <!--  <p class="text-secondary">-->
+        <!--  　<i class="fas fa-exclamation-circle"></i>登録時のメールアドレスを農業体験時の連絡手段として使用します。-->
+        <!--  </p>-->
+        <!--</div>-->
+
+          <%= f.submit "農家ユーザーとして新規登録", class:"btn btn-block btn-success mt-3" %>
 
       <% end %>
+
+
 
       </div>
     </div>

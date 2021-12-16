@@ -38,5 +38,5 @@ class GeneralUsers::SessionsController < Devise::SessionsController
       flash[:error] = "必須項目を入力してください。"
      end
     end
-  end
+   end
 end
