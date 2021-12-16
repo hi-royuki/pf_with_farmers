@@ -1,5 +1,5 @@
 class GeneralUsers::PostCommentsController < ApplicationController
-  before_action :authenticate_general_user!
+  
 
   def create
     post = Post.find(params[:post_id])
