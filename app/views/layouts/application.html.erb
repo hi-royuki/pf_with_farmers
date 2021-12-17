@@ -69,13 +69,12 @@
     </header>
     <main>
 
-
-
      <% if flash[:notice] %>
-     <div class="flash">
+<div class="alert alert-notice">
      <%= flash[:notice] %>
-     </div>
+
    　 <% end %>
+   　 </div>
    　 <%= yield %>
 
     </main>

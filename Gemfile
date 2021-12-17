@@ -76,3 +76,7 @@ gem "refile-mini_magick"
 # デバッグ作業をサポートしてくれるツールの導入
 gem 'byebug'
 gem 'enum_help'
+
+
+# deviseの日本語化
+gem 'rails-i18n'

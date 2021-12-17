@@ -4,7 +4,7 @@
       <h5 class="text-black-50 table-success py-4 mb-0">農家ユーザーログイン</h5>
       <div class="form-body p-4">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
+        <%= render "farmer_users/shared/error_messages", resource: resource %>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <span class="input-group-text" aria-hidden="true"><i class="fas fa-envelope"></i></span>
