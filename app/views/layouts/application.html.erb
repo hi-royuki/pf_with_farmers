@@ -42,7 +42,7 @@
               <%= link_to '農業体験', general_users_events_path, class: 'fas fa-tractor nav-link text-success' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'マイページ', general_users_users_path(current_general_user.id), class: 'fas fa-home-user nav-link text-success' %>
+              <%= link_to 'マイページ', general_users_users_path(current_general_user.id), class: 'fas fa-house-user nav-link text-success' %>
             </li>
             <!--<li class="nav-item">-->
             <!--  %= link_to "ログアウト", destroy_general_user_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-success' %>-->
@@ -78,5 +78,8 @@
    　 <%= yield %>
 
     </main>
+    <header>
+
+    </header>
   </body>
 </html>

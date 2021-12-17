@@ -59,8 +59,6 @@ Rails.application.routes.draw do
 
     resource :users, only: [:show, :edit, :update] do
     collection do
-      # post 'show' => 'users#show'
-      # post 'statusupdate'
       get 'unsubscribe'
       patch 'withdraw'
       end
