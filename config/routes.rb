@@ -59,6 +59,8 @@ Rails.application.routes.draw do
 
     resource :users, only: [:show, :edit, :update] do
     collection do
+      # post 'show' => 'users#show'
+      # post 'statusupdate'
       get 'unsubscribe'
       patch 'withdraw'
       end
@@ -67,7 +69,7 @@ Rails.application.routes.draw do
     #joinは、イベントに対して参加フォームを送信する。joinは、に結びつくためネスト（親子関係）する
     resources :events, only: [:new, :create, :index, :show, :destroy] do
       get 'search', on: :collection
-      
+
       collection do
         get 'confirm'
       # post 'update'
