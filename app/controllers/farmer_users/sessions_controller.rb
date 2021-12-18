@@ -28,13 +28,9 @@ class FarmerUsers::SessionsController < Devise::SessionsController
   protected
   def reject_farmer_user
     @farmer_user = FarmerUser.find_by(email: params[:farmer_user][:email].downcase)
-    if @farmer_user
      if (@farmer_user.valid_password?(params[:farmer_user][:password]) && !@farmer_user.is_active)
       flash[:notice] = "退会済みです。新たにアカウントを作成してください。"
       redirect_to new_farmer_user_registration_path
-     else
-      flash[:notice] = "必須項目を入力してください。"
      end
-    end
   end
 end

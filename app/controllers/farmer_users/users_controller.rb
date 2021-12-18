@@ -8,7 +8,7 @@ class FarmerUsers::UsersController < ApplicationController
     @joins = @farmer_user.joins.all.order(created_at: :desc)
     @join_lists = Join.all.order(created_at: :desc)
     @event_lists = @farmer_user.events.all.order(created_at: :desc)
-    
+
   end
 
   def edit
@@ -24,14 +24,14 @@ class FarmerUsers::UsersController < ApplicationController
       render :edit
     end
   end
-  
+
   def statusupdate
     # if @event.update(event_params)
   #     redirect_to confirm_farmer_users_events, notice: "対応ステータスを更新しました"
   # else
   #     render :confirm, alert: "対応ステータスを更新できませんでした"
   # end
-    
+
   end
 
   # 退会ページ
@@ -41,9 +41,7 @@ class FarmerUsers::UsersController < ApplicationController
 
   def withdraw
     @farmer_user = current_farmer_user
-    @farmer_user.update(is_active: false)# //is_deletedをtrueへ
-
-    reset_session # ログアウトさせる
+    @farmer_user.destroy
     flash[:notice] = "ありがとうございました。又のご利用を心よりお待ちしております。"
     redirect_to root_path
   end
