@@ -1,6 +1,6 @@
 <div class="container">
   <%= form_with url: search_general_users_events_path, method: :get, local: true do |f| %>
-    <%= f.text_field :keyword, value: @keyword,placeholder:"イチゴ" %>
+    <%= f.text_field :keyword, value: @keyword,placeholder:"キーワードを入力" %>
     <%= f.submit "検索", class: "btn btn-outline-secondary" %>
   <% end %>
 </div>

@@ -38,7 +38,7 @@
           <div class="row">
             <% @events.each do |event| %>
             <div class="col-lg-4 col-md-6 mb-4">
-             <%= link_to farmer_users_event_path(event.id) do %>
+             <%= link_to general_users_event_path(event.id) do %>
              <%= attachment_image_tag event, :event_image, :fill, 370, 370 %>
              <% end %>
             </div>

@@ -2,7 +2,7 @@
 
 <div class="container">
 <%= form_with url: search_farmer_users_events_path, method: :get, local: true do |f| %>
-    <%= f.text_field :keyword, value: @keyword,placeholder:"イチゴ" %>
+    <%= f.text_field :keyword, value: @keyword,placeholder:"キーワードを入力" %>
     <%= f.submit "検索", class: "btn btn-outline-secondary" %>
   <% end %>
 
@@ -36,11 +36,11 @@
             <%= f.text_area :introduction, class:"form-control", placeholder:"農業体験の詳細を記入してください。" %>
            </div>
            <div class="card-title">
-            <label for="book_opinion">日時</label>
-            <%= f.text_field :event_date, class:"form-control", placeholder:"２０●●年●●月●●日　午前●●時から/場所：山梨県〇〇付近" %>
+            <label for="book_opinion">日程/時間/場所</label>
+            <%= f.text_field :event_date, class:"form-control", placeholder:"２０●●年●●月●●日/午前●●時から/山梨県〇〇付近" %>
            </div>
            <div class="card-title">
-            <label for="book_opinion">参加費</label>
+            <label for="book_opinion">参加費（半角数字）</label>
             <%= f.text_field :price, class:"form-control", placeholder:"参加費がある場合は記入してください。" %>
             </div>
            <div class="card-title">
