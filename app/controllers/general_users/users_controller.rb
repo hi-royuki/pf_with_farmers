@@ -27,9 +27,8 @@ class GeneralUsers::UsersController < ApplicationController
 
   def withdraw
     @general_user = current_general_user
-    @general_user.update(is_active: false)# //is_deletedをtrueへ
-
-    reset_session # ログアウトさせる
+    # @general_user.update(is_active: false)# //is_deletedをtrueへ
+    @general_user.destroy
     flash[:notice] = "ありがとうございました。又のご利用を心よりお待ちしております。"
     redirect_to root_path
   end

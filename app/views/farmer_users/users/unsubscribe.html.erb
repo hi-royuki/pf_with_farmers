@@ -1,11 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="card bg-light mb-3" style="max-width: 40rem;">
-      <div class="card-header"><h4 class="text-center">本当に退会しますか</h4></div>
+      <div class="card-header"><h4 class="text-center">本当に退会しますか?</h4></div>
       <div class="card-body">
-        <h5 class="card-title">退会する場合は「退会する」をクリックしてください。</h5>
+        <p class="card-text"><i class="fas fa-exclamation-circle"></i>退会手続きをされますと、全てのサービスがご利用いただけなくなります。<br>
+          再度ご利用をいただく場合には、新規登録のお手続きが必要になります。<br>
+           本当に退会してよろしいですか？</p>
         <p class="card-text"><%= link_to "退会しない", farmer_users_users_path, class: "btn btn-primary" %><%= link_to "退会する", withdraw_farmer_users_users_path, method: :PATCH, data: { confirm: '退会しますか？' }, class: "btn btn-danger ml-4" %></p>
-        <p class="card-text"></p>
+
       </div>
     </div>
 
