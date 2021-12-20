@@ -8,20 +8,17 @@ ja:
         outstanding: "未対応"
         in_progress: "対応中"
         closed: "対応済"
-  activerecord:
-    models:
-      farmer_user: 農家ユーザー
-    attributes:
-      farmer_user:
-        name: ニックネーム
-        email: メールアドレス
-        password: パスワード
 
   activerecord:
     models:
+      farmer_user: 農家ユーザー
       general_user: 一般ユーザー
     attributes:
       general_user:
+        name: ニックネーム
+        email: メールアドレス
+        password: パスワード
+      farmer_user:
         name: ニックネーム
         email: メールアドレス
         password: パスワード
