@@ -83,6 +83,7 @@ gem 'rails-i18n'
 
 # 本番環境前準備
 gem 'dotenv-rails'
-group :production do
+# group :production do
+group :production, :staging do
   gem 'mysql2'
 end
