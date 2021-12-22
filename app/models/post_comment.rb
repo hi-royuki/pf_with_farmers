@@ -5,9 +5,5 @@ class PostComment < ApplicationRecord
    belongs_to :general_user, optional: true
    belongs_to :post
    
-   # 二つのユーザーを持ってくる
-   def both_user
-      
-   end
-
+   validates :comment, presence: true
 end
