@@ -30,8 +30,11 @@
        <h6 class="card-body p-3 border-top d-flex justify-content-center">
          <i class="fas fa-calendar-alt"></i><%= @event.event_date %>
        </h6>
+       <h6 class="card-body p-3 border-top d-flex justify-content-center">
+           <i class="fas fa-location-arrow"></i><%= @event.event_place %>
+       </h6>
        <h6 class="card-body p-3 border-top border-bottom d-flex justify-content-center">
-          参加費:<%= @event.price %>円
+          <i class="fas fa-yen-sign"></i><%= @event.price %>円
         </h6>
         <%= link_to "参加リクエスト", new_farmer_users_event_join_path(@event), class: "btn btn-outline-primary d-flex justify-content-center" %>
         </div>
