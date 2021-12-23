@@ -60,7 +60,7 @@ before_action :authenticate_farmer_user!
 
   private
   def event_params
-    params.require(:event).permit(:title, :event_image, :introduction, :event_date, :price, :response_status)
+    params.require(:event).permit(:title, :event_image, :introduction, :event_date, :event_place, :price, :response_status)
   end
 
 end
