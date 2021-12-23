@@ -1,5 +1,5 @@
 <!--マイページ-->
-<div class="container">
+<!--<div class="container">-->
   <div class="profile-wrap">
   <div class="row">
     <div class="col-md-4 text-center">
@@ -43,17 +43,17 @@
     </div>
   </div>
  </div>
-</div>
+<!--</div>-->
 
-<div class="container">
-  <div class="row">
+<!--<div class="container">-->
+<!--  <div class="row">-->
     <div class="area">
 
         <input type="radio" name="tab_name" id="tab1"  checked>
         <label class="tab_class" for="tab1"><strong>農業体験希望者一覧</strong></label>
         <div class="content_class">
-          <div class="container">
-            <div class="row">
+          <!--<div class="container">-->
+          <!--  <div class="row">-->
             <table class="table table-bordered">
               <thead class="bg-success text-white">
                 <tr>
@@ -91,15 +91,15 @@
                    <% end %>
                </table>
             </div>
-          </div>
-        </div>
+        <!--  </div>-->
+        <!--</div>-->
 
 
           <input type="radio" name="tab_name" id="tab2" >
         <label class="tab_class" for="tab2"><strong>農業体験リクエスト一覧</strong></label>
         <div class="content_class">
-         <div class="container">
-           <div class="row">
+         <!--<div class="container">-->
+         <!--  <div class="row">-->
            <table class="table table-bordered">
              <thead class="bg-success text-white">
                   <tr>
@@ -132,50 +132,50 @@
               <% end %>
             </table>
           </div>
-         </div>
-        </div>
+        <!-- </div>-->
+        <!--</div>-->
 
 
       <input type="radio" name="tab_name" id="tab3">
         <label class="tab_class" for="tab3"><i class="fas fa-book"></i></label>
         <div class="content_class">
-          <div class="container">
+          <!--<div class="container">-->
             <div class="row">
              <% @posts.each do |post| %>
              <div class="col-lg-4 col-md-6 mb-4">
               <%= link_to farmer_users_post_path(post.id) do %>
-              <%= attachment_image_tag post, :image, :fill, 380, 380, class: "img-fluid" %>
+              <%= attachment_image_tag post, :image, :fill, 500, 500, class: "img-fluid" %>
               <% end %>
              </div>
            <% end %>
            </div>
           </div>
-        </div>
+        <!--</div>-->
 
 
         <input type="radio" name="tab_name" id="tab4" >
         <label class="tab_class" for="tab4"><i class="fas fa-tractor user-font"></i></label>
         <div class="content_class">
-        <div class="container">
-            <div class="row">
+        <!--<div class="container">-->
+        <!--    <div class="row">-->
               <% @events.each do |event| %>
               <div class="col-lg-4 col-md-6 mb-4">
               <%= link_to farmer_users_event_path(event.id) do %>
-              <%= attachment_image_tag event, :event_image, :fill, 380, 380, class: "img-fluid" %>
+              <%= attachment_image_tag event, :event_image, :fill, 500, 500, class: "img-fluid" %>
               <% end %>
               </div>
               <% end %>
            </div>
-          </div>
-        </div>
+        <!--  </div>-->
+        <!--</div>-->
 
 
 
 
 
        </div>
-    </div>
-</div>
+<!--    </div>-->
+<!--</div>-->
 
 
 
