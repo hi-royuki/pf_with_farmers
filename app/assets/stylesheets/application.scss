@@ -20,6 +20,9 @@
 @import 'font-awesome';
 // @import 'home'
 
+
+
+
  .circle {
       border-radius: 60%;
       width: 80px;
@@ -37,7 +40,7 @@
 
 .apptitle{
   color: #FFFFFF;
-  font-size: 40px;
+  font-size: 70px;
   font-family: Impact;
   text-shadow: 3px 3px 0 #cd5;
   -webkit-text-stroke: 1px #888;
@@ -51,3 +54,7 @@ ul {
 // main{
 //   background-color: #CCFF99;
 // }
+
+.nav-item{
+  font-size: 20px;
+}

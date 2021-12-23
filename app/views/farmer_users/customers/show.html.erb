@@ -24,7 +24,7 @@
              <% @posts.each do |post| %>
              <div class="col-lg-4 col-md-6 mb-4">
               <%= link_to farmer_users_post_path(post.id) do %>
-              <%= attachment_image_tag post, :image, :fill, 370, 370 %>
+              <%= attachment_image_tag post, :image, :fill, 380, 380, class: "img-fluid"  %>
               <% end %>
              </div>
            <% end %>

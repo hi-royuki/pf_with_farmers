@@ -15,7 +15,6 @@
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <div class="container">
             <a class="navbar-brand" href="/"><span class="apptitle">With Farmers</span></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -24,13 +23,13 @@
             <ul class="navbar-nav ml-auto">
             <% if farmer_user_signed_in? %>
             <li class="nav-item">
-              <%= link_to '投稿一覧', farmer_users_posts_path, class: 'fas fa-book nav-link text-success' %>
+              <%= link_to '投稿一覧', farmer_users_posts_path, class: 'fas fa-book nav-link text-success p-3' %>
             </li>
            <li class="nav-item">
-              <%= link_to '農業体験', farmer_users_events_path, class: 'fas fa-tractor nav-link text-success' %>
+              <%= link_to '農業体験', farmer_users_events_path, class: 'fas fa-tractor nav-link text-success p-3' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'マイページ', farmer_users_users_path(current_farmer_user.id), class: 'fas fa-house-user nav-link text-success' %>
+              <%= link_to 'マイページ', farmer_users_users_path(current_farmer_user.id), class: 'fas fa-house-user nav-link text-success p-3' %>
             </li>
             <!--<li class="nav-item">-->
             <!--  %= link_to "ログアウト", destroy_farmer_user_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-success' %>-->
@@ -38,13 +37,13 @@
 
             <% elsif general_user_signed_in? %>
             <li class="nav-item">
-              <%= link_to '投稿一覧', general_users_posts_path, class: 'fas fa-book nav-link text-success' %>
+              <%= link_to '投稿一覧', general_users_posts_path, class: 'fas fa-book nav-link text-success p-3' %>
             </li>
            <li class="nav-item">
-              <%= link_to '農業体験', general_users_events_path, class: 'fas fa-tractor nav-link text-success' %>
+              <%= link_to '農業体験', general_users_events_path, class: 'fas fa-tractor nav-link text-success p-3' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'マイページ', general_users_users_path(current_general_user.id), class: 'fas fa-house-user nav-link text-success' %>
+              <%= link_to 'マイページ', general_users_users_path(current_general_user.id), class: 'fas fa-house-user nav-link text-success p-3' %>
             </li>
             <!--<li class="nav-item">-->
             <!--  %= link_to "ログアウト", destroy_general_user_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-success' %>-->
@@ -52,21 +51,21 @@
 
             <% else %>
             <li class="nav-item">
-              <%= link_to "トップ", root_path, class: "fas fa-home nav-link text-success" %>
+              <%= link_to "トップ", root_path, class: "fas fa-home nav-link text-success p-3" %>
             </li>
             <li class="nav-item">
-              <%= link_to "About", home_about_path, class: "fas fa-link nav-link text-success" %>
+              <%= link_to "About", home_about_path, class: "fas fa-link nav-link text-success p-3" %>
             </li>
             <li class="nav-item">
-              <%= link_to "新規登録", home_choice_path, class: "fas fa-user nav-link text-success" %>
+              <%= link_to "新規登録", home_choice_path, class: "fas fa-user nav-link text-success p-3" %>
             </li>
             <li class="nav-item">
-              <%= link_to "ログイン", home_choice_login_path, class: 'fas fa-sign-in-alt nav-link text-success' %>
+              <%= link_to "ログイン", home_choice_login_path, class: 'fas fa-sign-in-alt nav-link text-success p-3' %>
             </li>
             <% end %>
             </ul>
           </div>
-        </div>
+
       </nav>
     </header>
     <main>

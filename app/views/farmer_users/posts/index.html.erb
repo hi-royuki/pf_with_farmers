@@ -1,12 +1,12 @@
 <div class="container">
-
-  <% if @post.errors.any? %>
-  　<%= @post.errors.count %>件のエラーが発生しました。入力を確認してください。
-  <% end %>
   <!--新規投稿-->
  <div class="d-flex justify-content-center">
+    <% if @post.errors.any? %>
+  　<%= @post.errors.count %>件のエラーが発生しました。入力を確認してください。
+  <% end %>
   <h3><button type="button" class="setting" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus btn btn-success"></i></button></h3>
  </div>
+ 
  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog" role="document">
       <div class="modal-content">

@@ -7,9 +7,9 @@
   <% end %>
 
  <div class="d-flex justify-content-center">
- <!-- % if @event.errors.any? %>-->
- <!-- %= @event.errors.count %>件のエラーが発生しました。入力を確認してください。-->
- <!--% end %>-->
+  <% if @event.errors.any? %>
+  <%= @event.errors.count %>件のエラーが発生しました。入力を確認してください。
+ <% end %>
   <h3><button type="button" class="setting" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus btn btn-success"></i></button></h3>
  </div>
 
@@ -52,7 +52,9 @@
     </div>
   </div>
 </div>
-<div class="container">
+
+
+<!--<div class="container">-->
 
  <!--投稿一覧-->
  <% @events.each do |event| %>
@@ -79,12 +81,17 @@
       <p class="card-title">
        <strong><i class="far fa-flag"></i><span><%= event.title %></strong>
       </p>
-      <p class="card-text"><%= event.introduction %></p>
+      <div class="d-flex bd-highlight">
+       <div class="p-2 flex-grow-1 bd-highlight">
+        <p class="card-text"><%= event.introduction %>
+       </div>
+       </p>
+      </div>
      </div>
     </div>
    </div>
   </div>
  </div>
  <% end %>
-</div>
+<!--</div>-->
 
