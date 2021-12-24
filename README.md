@@ -31,7 +31,9 @@
 イベント等に参加することで，家族や学校の思い出を作ることができます。
 
 ## 設計書
-（作成後追加予定）
+
+https://docs.google.com/spreadsheets/d/1RGtuNNska-x0XrVKxtepWGykhXCc3ur0pBm2QpxkF1Y/edit#gid=0
+
 
 
 ## チャレンジ要素一覧
@@ -46,4 +48,5 @@ https://docs.google.com/spreadsheets/d/1mNcSA2TgvSoWNj8HwKCtNazOEfDivWvALswe3e6-
 - IDE：Cloud9
 
 ## 使用素材
-- フリー画像：O-DAN
+- フリー画像：https://o-dan.net/ja/
+- ロゴ：https://fontawesome.com/
