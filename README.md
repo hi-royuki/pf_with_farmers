@@ -39,7 +39,6 @@
 https://docs.google.com/spreadsheets/d/1mNcSA2TgvSoWNj8HwKCtNazOEfDivWvALswe3e6-P7Y/edit#gid=0
 
 ## 開発環境
-（変更あれば変更する）
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
@@ -47,6 +46,4 @@ https://docs.google.com/spreadsheets/d/1mNcSA2TgvSoWNj8HwKCtNazOEfDivWvALswe3e6-
 - IDE：Cloud9
 
 ## 使用素材
-
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名と URL を明記してください。
-- 使用しない場合は、使用素材の項目を README から削除してください。
+- フリー画像：O-DAN
