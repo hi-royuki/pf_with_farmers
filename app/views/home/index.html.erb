@@ -2,7 +2,24 @@
   <div class="text-center">
     <h1 class="title mb-2">With Farmers</h1>
      <p class="sub-title">〜農と人を繋ぐ〜</p>
+      <% if farmer_user_signed_in? %>
+      <div class="top-new-btn mt-3 mx-auto">
+        <%= link_to 'マイページへGO!', farmer_users_users_path, class: 'press-down text-decoration-none' %>
+      </div>
+    <% elsif general_user_signed_in? %>
+      <div class="top-new-btn mt-3 mx-auto">
+        <%= link_to 'マイページへGO!', farmer_users_users_path, class: 'press-down text-decoration-none' %>
+      </div>
+    <% else %>
+      <div class="top-new-btn mt-5 mx-auto">
+        <%= link_to 'さっそく登録する！！', home_choice_path, class: 'press-down text-decoration-none' %>
+      </div>
+    <% end %>
   </div>
+</div>
+
+<div class="container">
+
 </div>
 
 

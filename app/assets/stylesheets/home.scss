@@ -10,6 +10,21 @@
   background-size: cover;
 }
 
+//早速始めてみるボタン
+.press-down {
+  font-size: 25px;
+  display: inline-block;
+  background-color: #cd5;
+  padding: 15px 25px;
+  margin: 50px 50px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 7px;
+  box-shadow: 0 6px #0f5762;
+  }
+
+
 .title {
   position: relative;
   color: #FFFFFF;
