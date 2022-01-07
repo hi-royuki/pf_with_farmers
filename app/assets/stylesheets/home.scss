@@ -10,7 +10,7 @@
   background-size: cover;
 }
 
-//早速始めてみるボタン
+//早速始めてみるボタンとマイページ欄
 .press-down {
   font-size: 25px;
   display: inline-block;
@@ -123,4 +123,31 @@
   background: #fff;
   border: 1px solid #009350;
   border-radius: 20px;
+}
+// 使い方の部分
+.way-text {
+  padding-left: 29px;
+  font-size: 20px;
+}
+.title-color{
+  color: #FFFFFF;
+  text-shadow: 3px 3px 0 #cd5;
+  -webkit-text-stroke: 1px #888;
+  text-stroke: 1px #888;
+}
+.fa-bookmark {
+  color: #cd5;
+}
+
+.way-image1 {
+    height: 500px;
+    width: 650px;
+    background-image: image-url('10885_color.png');
+    background-position: center;
+    background-size: cover;
+  }
+
+.way-about{
+  display: flex;
+  justify-content: space-around;
 }
